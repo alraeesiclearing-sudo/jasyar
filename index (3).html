@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOMO DIGITAL - Traffic Services</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18160205082"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18160205082');
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #007a53;
+            --light-mint: #e8f5f1;
+            --bg-white: #ffffff;
+            --footer-black: #000000;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-white);
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-left { display: flex; align-items: center; gap: 15px; }
+        .menu-icon { font-size: 24px; cursor: pointer; color: var(--primary-green); }
+        .company-name { font-weight: 800; font-size: 1.2rem; color: #000; }
+        
+        .lang-btn {
+            background-color: #fff;
+            border: 1px solid var(--primary-green);
+            color: var(--primary-green);
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .container { padding: 20px 15px; max-width: 500px; margin: 0 auto; }
+
+        .main-title {
+            text-align: center;
+            color: var(--primary-green);
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 20px 0 30px 0;
+            line-height: 1.4;
+        }
+
+        .service-card {
+            background-color: var(--light-mint);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,122,83,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,122,83,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,122,83,0.2);
+        }
+
+        .query-btn {
+            background-color: var(--primary-green);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .service-icon {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            width: 40px;
+            text-align: center;
+        }
+
+        .card-content { flex: 1; margin: 0 15px; text-align: left; }
+        .card-title { color: var(--primary-green); font-size: 1.1rem; font-weight: 800; display: block; }
+        .card-desc { color: #555; font-size: 0.85rem; margin-top: 4px; }
+
+        .faq-section { margin-top: 40px; }
+        .faq-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 20px; }
+        
+        .faq-item {
+            background: #fff;
+            border: 1px solid #eee;
+            margin-bottom: 12px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .faq-question {
+            padding: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #000;
+            font-size: 0.95rem;
+        }
+
+        .faq-question .plus { color: var(--primary-green); font-size: 1.4rem; }
+
+        .faq-answer { max-height: 0; overflow: hidden; transition: 0.3s ease-out; background: #fafafa; }
+        .faq-answer p { padding: 15px; margin: 0; font-size: 0.9rem; color: #666; line-height: 1.6; }
+
+        .legal-stack {
+            margin: 40px 0;
+            text-align: left;
+        }
+        
+        .legal-stack a {
+            display: block;
+            color: var(--primary-green);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            padding: 5px 0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: color 0.3s;
+        }
+
+        .legal-stack a:hover {
+            color: #004d34;
+        }
+
+        footer {
+            background-color: var(--footer-black);
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .f-disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            border-bottom: 1px solid #222;
+            padding-bottom: 20px;
+        }
+
+        .f-info { font-size: 0.9rem; line-height: 2; }
+        .f-info .comp-name { color: #fff; display: block; font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; }
+        .f-info .detail { color: #bbb; display: block; }
+        .f-info .operator-text { color: #fff; display: block; font-size: 1.05rem; font-weight: bold; margin-top: 15px; border-top: 1px dashed #333; padding-top: 15px; text-align: center; }
+
+        /* Welcome Pop-up Banner Styling */
+        .banner-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .banner-content {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 480px;
+            padding: 30px 25px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 2px solid var(--primary-green);
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .banner-header {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .banner-comp-name {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #000000;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .banner-text-en {
+            font-size: 0.85rem;
+            color: #333333;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: justify;
+            direction: ltr;
+        }
+
+        .banner-text-ar {
+            font-size: 0.95rem;
+            color: #666666;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            text-align: justify;
+            direction: rtl;
+            border-top: 1px dashed #e0e0e0;
+            padding-top: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .banner-btn {
+            background-color: var(--primary-green);
+            color: #ffffff;
+            border: none;
+            padding: 14px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+            box-shadow: 0 4px 12px rgba(0,122,83,0.3);
+        }
+
+        .banner-btn:hover {
+            background-color: #00593c;
+        }
+    </style>
+</head>
+<body>
+
+<div id="welcomeBanner" class="banner-overlay">
+    <div class="banner-content">
+        <div class="banner-header">Inquiry and Payment of Traffic Fines in the UAE</div>
+        <span class="banner-comp-name">by FOMO DIGITAL</span>
+        
+        <div class="banner-text-en">
+            Disclaimer: FOMO DIGITAL is an independent electronic payment and collection platform (technical intermediary) to facilitate transactions. It is not an official government entity and does not represent traffic police or road authorities.
+        </div>
+        
+        <div class="banner-text-ar">
+            إخلاء مسؤولية: فومو ديجيتال هي منصة دفع وتحصيل إلكتروني مستقلة (وسيط تقني) لتسهيل المعاملات، وليست جهة حكومية رسمية ولا تمثل شرطة المرور أو هيئات الطرق.
+        </div>
+        
+        <button class="banner-btn" onclick="startService()">Start Service</button>
+    </div>
+</div>
+
+<header>
+    <div class="header-left">
+        <div class="menu-icon">☰</div>
+        <div class="company-name">FOMO DIGITAL</div>
+    </div>
+    <a href="index-ar.html" class="lang-btn">العربية</a>
+</header>
+
+<div class="container">
+    
+    <h1 class="main-title">UAE Traffic Fine Inquiry & Payment Services</h1>
+
+    <a href="https://vasrsaea.online" class="service-card">
+        <div class="service-icon"><i class="fas fa-car-side"></i></div>
+        <div class="card-content">
+            <span class="card-title">Inquiry by Plate Number</span>
+            <p class="card-desc">Quick check using vehicle details</p>
+        </div>
+        <div class="query-btn">Inquiry</div>
+    </a>
+
+    <a href="https://vasrsaea.online" class="service-card">
+        <div class="service-icon"><i class="fas fa-folder-open"></i></div>
+        <div class="card-content">
+            <span class="card-title">Inquiry by Traffic File</span>
+            <p class="card-desc">View all fines on your personal file</p>
+        </div>
+        <div class="query-btn">Inquiry</div>
+    </a>
+
+    <a href=https://vasrsaea.online"" class="service-card">
+        <div class="service-icon"><i class="fas fa-id-card"></i></div>
+        <div class="card-content">
+            <span class="card-title">Inquiry by License</span>
+            <p class="card-desc">Search for fines registered on your license</p>
+        </div>
+        <div class="query-btn">Inquiry</div>
+    </a>
+
+    <div class="faq-section">
+        <div class="faq-title">Frequently Asked Questions</div>
+
+        <div class="faq-item">
+            <div class="faq-question">How can I inquire about traffic fines? <span class="plus">+</span></div>
+            <div class="faq-answer"><p>You can easily inquire by selecting the appropriate service (Plate, License, or Traffic File) and entering the required details.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is the payment portal safe and secure? <span class="plus">+</span></div>
+            <div class="faq-answer"><p>Yes, we use high-level SSL encryption and certified payment gateways to ensure your financial data is fully protected.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">When will the fine be updated after payment? <span class="plus">+</span></div>
+            <div class="faq-answer"><p>Fines are usually updated in the official system within a few minutes up to 24 working hours after a successful transaction.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I pay fines for all UAE Emirates? <span class="plus">+</span></div>
+            <div class="faq-answer"><p>Yes, our platform supports inquiry and payment services for traffic fines registered across all Emirates of the UAE.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What should I do if the fine still appears after payment? <span class="plus">+</span></div>
+            <div class="faq-answer"><p>Please wait for the system to sync. If it persists after 24 hours, contact our technical support with your transaction receipt.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Are there any additional service fees? <span class="plus">+</span></div>
+            <div class="faq-answer"><p>A small administrative fee may apply for providing fast electronic collection services and technical facilitation.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How do I receive my payment receipt? <span class="plus">+</span></div>
+            <div class="faq-answer"><p>A digital receipt will be sent automatically to your registered email address immediately after the payment is confirmed.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I dispute a fine through this website? <span class="plus">+</span></div>
+            <div class="faq-answer"><p>No, this platform is for inquiry and payment only. Disputes must be filed through the official channels of the respective traffic authorities.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What payment methods are accepted? <span class="plus">+</span></div>
+            <div class="faq-answer"><p>We accept all major credit and debit cards, including Visa, MasterCard, and local cards authorized in the UAE.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is the service available during holidays? <span class="plus">+</span></div>
+            <div class="faq-answer"><p>Yes, the platform is available 24/7, allowing you to inquire and pay for fines at any time, including weekends and holidays.</p></div>
+        </div>
+    </div>
+
+    <div class="legal-stack">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="disclaimer.html">Legal Disclaimer</a>
+        <a href="refund.html">Refund Policy</a>
+    </div>
+</div>
+
+<footer>
+    <div class="f-disclaimer">
+        Disclaimer: This website is completely independent and operated by FOMO DIGITAL FOR FEES COLLECTION & PAYMENTS SERVICES L.L.C, which is an independent electronic payment and collection platform (technical intermediary) and does not represent any official government entities.
+    </div>
+    
+    <div class="f-info">
+        <span class="comp-name">FOMO DIGITAL FOR FEES COLLECTION & PAYMENTS SERVICES L.L.C</span>
+        <span class="detail">Unified License Number: 952748</span>
+        <span class="detail">Legal Location: Office No. 196-1, Dubai Investment Park Second, Dubai, United Arab Emirates</span>
+        <span class="detail">License issued by Dubai Department of Economy and Tourism, valid until: 05-05-2027</span>
+        <span class="operator-text">This website is operated by FOMO DIGITAL FOR FEES COLLECTION & PAYMENTS SERVICES L.L.C</span>
+    </div>
+</footer>
+
+<script>
+    // Function to hide welcome pop-up banner when Start Service button is clicked
+    function startService() {
+        document.getElementById('welcomeBanner').style.display = 'none';
+    }
+
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', () => {
+            const answer = item.nextElementSibling;
+            const plus = item.querySelector('.plus');
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                plus.innerText = "+";
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                plus.innerText = "−";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
