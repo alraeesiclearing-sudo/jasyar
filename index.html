@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جسور للحلول البشرية - بيست لتوريد العمالة</title>
+    <style>
+        /* إعادة تعيين الأنماط الأساسية */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-burgundy: #701331; /* اللون العنابي الرسمي */
+            --secondary-blue: #1b365d;  /* اللون الأزرق الداكن */
+            --light-bg: #fdfbf7;        /* خلفية مريحة للعين */
+            --text-dark: #333333;
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* الهيدر العلوي */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid #f0e6e6;
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: block;
+            overflow: hidden;
+        }
+
+        .logo-right {
+            float: right;
+            margin-top: 6px;
+        }
+
+        /* تعديل اسم الشركة للون العنابي وتصغير الحجم */
+        .company-name-eng {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary-burgundy);
+            letter-spacing: 0.5px;
+            font-family: 'Arial Black', Gadget, sans-serif;
+        }
+
+        .left-controls {
+            float: left;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 3px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid #ccc;
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--text-dark);
+            font-weight: bold;
+        }
+
+        /* تصميم الثلاث شرطات للقائمة */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 22px;
+            height: 16px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-burgundy);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* قسم الهيرو / المقدمة الرئيسية */
+        .hero-section {
+            text-align: center;
+            padding: 50px 20px 30px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            color: var(--primary-burgundy);
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            color: var(--secondary-blue);
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .hero-description {
+            color: #555;
+            font-size: 16px;
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: rgba(112, 19, 49, 0.04);
+            padding: 15px;
+            border-radius: 8px;
+            border-right: 4px solid var(--primary-burgundy);
+        }
+
+        /* قسم الخدمات والأزرار المطلوبة */
+        .services-section {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .services-title {
+            color: var(--secondary-blue);
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .services-subtitle {
+            color: #777;
+            font-size: 15px;
+            margin-bottom: 35px;
+        }
+
+        /* تصميم الكروت والأزرار */
+        .service-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(112, 19, 49, 0.05);
+            border: 1px solid #f2eded;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .icon-container {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-burgundy);
+            border-radius: 15px;
+            margin: 0 auto 15px auto;
+            display: table;
+        }
+
+        .icon-container span {
+            display: table-cell;
+            vertical-align: middle;
+            color: var(--white);
+            font-size: 26px;
+        }
+
+        .action-button {
+            display: block;
+            width: 100%;
+            background-color: var(--primary-burgundy);
+            color: var(--white);
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-button:hover {
+            background-color: #550e24;
+        }
+
+        /* قسم الأسئلة الشائعة */
+        .faq-section {
+            max-width: 700px;
+            margin: 50px auto 10px auto;
+            padding: 20px;
+        }
+
+        .faq-title {
+            text-align: center;
+            color: var(--secondary-blue);
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border: 1px solid #e6dfdf;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .faq-question {
+            padding: 18px;
+            font-weight: bold;
+            color: var(--primary-burgundy);
+            cursor: pointer;
+            background-color: #fff;
+            position: relative;
+            font-size: 16px;
+            border-bottom: 1px solid #f9f6f6;
+        }
+
+        .faq-answer {
+            padding: 18px;
+            color: #555;
+            font-size: 15px;
+            background-color: #faf8f5;
+            line-height: 1.7;
+        }
+
+        /* تنسيق روابط السياسات لتكون تحت بعضها بدون كادر أو مربع */
+        .legal-vertical-container {
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .legal-vertical-title {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .legal-vertical-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .legal-vertical-list a {
+            color: var(--primary-burgundy);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border-bottom: 1px dashed var(--primary-burgundy);
+            padding-bottom: 2px;
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .legal-vertical-list a:hover {
+            color: var(--secondary-blue);
+            border-bottom-color: var(--secondary-blue);
+        }
+
+        /* الفوتر السفلي */
+        footer {
+            background-color: var(--primary-burgundy);
+            color: var(--white);
+            padding: 40px 20px 20px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .footer-partnership {
+            font-size: 14px;
+            text-align: center;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            color: #fddb3a;
+        }
+
+        .footer-info-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+        }
+
+        .footer-links-grid {
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            font-size: 14px;
+            margin-bottom: 10px;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .info-item strong {
+            color: #fddb3a;
+        }
+
+        .quick-links {
+            list-style: none;
+        }
+
+        .quick-links li {
+            margin-bottom: 8px;
+        }
+
+        .quick-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .quick-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .copyright-bar {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+            .footer-col {
+                display: table-cell;
+                vertical-align: top;
+                padding: 0 15px;
+            }
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر العلوي المعدل -->
+    <header>
+        <div class="header-container clearfix">
+            <!-- اسم الشركة باللون العنابي المصغر -->
+            <div class="logo-right">
+                <span class="company-name-eng">BEST MANPOWER SUPPLY</span>
+            </div>
+            <!-- زر اللغة ومفتاح الثلاث شرطات بجانبه -->
+            <div class="left-controls">
+                <button class="lang-btn">EN 🌐</button>
+                <button class="menu-toggle" aria-label="القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- مقدمة الصفحة الرئيسية -->
+    <main>
+        <section class="hero-section">
+            <h1 class="hero-title">شركة حلول الموارد البشرية</h1>
+            <h2 class="hero-subtitle">جسور</h2>
+            <p class="hero-description">
+                بوابة التوريد والاستقدام الإقليمية المعتمدة لتقديم خدمات العمالة المنزلية والحلول البشرية الفورية، بالتعاون القانوني والتنفيذي الكامل مع شركة بيست للتوسط في توريد العمالة.
+            </p>
+        </section>
+
+        <!-- قسم الخدمات والأزرار المطلوبة -->
+        <section class="services-section">
+            <h3 class="services-title">خدماتنا</h3>
+            <p class="services-subtitle">اختر الخدمة الأنسب لاحتياجاتك للبدء الفوري</p>
+
+            <!-- كرت 1: عمالة منزلية بالساعة -->
+            <div class="service-card">
+                <div class="icon-container">
+                    <span>⏱</span>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=97400000000&text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8Check%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%B9%D8%A7%D9%85%D9%84%D8%A9%20%D9%85%D9%86%D8%B2%D9%84%D9%8A%D8%A9%20%D8%A8%D8%A7%D9%84%D8%B3%D8%A7%D8%B9%D8%A9" class="action-button">طلب عاملة بالساعة</a>
+            </div>
+
+            <!-- كرت 2: عمالة منزلية باليوم -->
+            <div class="service-card">
+                <div class="icon-container">
+                    <span>📅</span>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=97400000000&text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%B9%D8%A7%D9%85%D9%84%D8%A9%20%D9%85%D9%86%D8%B2%D9%84%D9%8A%D8%A9%20%D8%A8%D8%A7%D9%84%D9%8A%D9%88%D9%85" class="action-button">طلب عاملة باليوم</a>
+            </div>
+
+            <!-- كرت 3: عمالة منزلية مقيمة -->
+            <div class="service-card">
+                <div class="icon-container">
+                    <span>🏡</span>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=97400000000&text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%B9%D8%A7%D9%85%D9%84%D8%A9%20%D9%85%D9%86%D8%B2%D9%84%D9%8A%D8%A9%20%D9%85%D9%82%D9%8A%D9%85%D8%A9" class="action-button">طلب عاملة مقيمة</a>
+            </div>
+        </section>
+
+        <!-- قسم 10 أسئلة شائعة -->
+        <section class="faq-section">
+            <h3 class="faq-title">الأسئلة الشائعة</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">1. ما هي الجنسيات المتاحة لاستقدام العاملات المنزليات؟</div>
+                <div class="faq-answer">نوفر عمالة منزلية مؤهلة ومدربة من جنسيات متعددة تشمل الفلبين، إندونيسيا، كينيا، إثيوبيا، سريلانكا، وبنغلاديش، بما يتوافق مع الرغبات المتنوعة للعملاء.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">2. هل العمالة المنزلية بالساعة واليوم مدربة ومضمونة؟</div>
+                <div class="faq-answer">نعم، جميع العاملات بنظام الساعة أو اليوم مدربات بشكل احترافي على أعلى مستويات النظافة، الضيافة، وإدارة وتدبير شؤون المنازل الكبيرة والصغيرة.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">3. ما هي الضمانات التي تقدمها الشركة للعميل؟</div>
+                <div class="faq-answer">نقدم ضماناً شاملاً ورسمياً على العمالة المنزلية المقيمة في حالات رفض العمل، المرض، أو عدم الكفاءة، حيث يتم استبدال العاملة فوراً دون أي تكاليف إضافية على العميل خلال فترة الضمان.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">4. كم تستغرق مدة إنهاء إجراءات استقدام العاملة المقيمة؟</div>
+                <div class="faq-answer">تستغرق الإجراءات الرسمية للاستقدام الخارجي من 15 إلى 30 يوماً كحد أقصى، مع توفير تحديثات مستمرة للعميل حول حالة الطلب والموعد المتوقع لوصول العاملة.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">5. هل تتوفر لديكم عاملات منزليات ذوات خبرة سابقة في الخليج؟</div>
+                <div class="faq-answer">نعم، نوفر قسماً خاصاً للعاملات اللواتي يمتلكن خبرات سابقة ممتدة داخل دول الخليج العربي، ويجدن الطهي وإدارة شؤون المنزل ولديهن معرفة تامة بالعادات والتقاليد.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">6. كيف يتم احتساب أسعار وتكاليف استقدام العمالة؟</div>
+                <div class="faq-answer">تختلف التكاليف والرواتب الشهرية بناءً على جنسية العاملة، نوع الخدمة المطلوبة (ساعة/يوم/مقيم)، والخبرات المهنية التي تمتلكها. نحرص دائماً على تقديم أسعار تنافسية مرنة.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">7. هل تقوم الشركة بإنهاء كافة الإجراءات القانونية والفحوصات الطبية؟</div>
+                <div class="faq-answer">بكل تأكيد، تتولى شركتنا إنهاء كافة المعاملات القانونية بدءاً من الفحوصات الطبية الشاملة، إصدار الإقامات، التأمين الصحي، وحتى تسليم العاملة إلى باب منزل العميل.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">8. هل يمكنني اختيار وتحديد مواصفات العاملة بنفسي؟</div>
+                <div class="faq-answer">نعم، نوفر لك إمكانية الاطلاع على السير الذاتية الكاملة والملفات الشخصية للعاملات، بالإضافة إلى إمكانية إجراء مقابلة شخصية مباشرة عبر الفيديو قبل إتمام التعاقد للتأكد من ملاءمتها.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">9. ما هي طرق الدفع المتاحة لإتمام التعاقد؟</div>
+                <div class="faq-answer">نوفر خيارات دفع آمنة ومتنوعة تسهل على عملائنا إتمام المعاملات، بما في ذلك الدفع الإلكتروني المباشر، التحويلات البنكية الرسمية، أو الدفع في مقر الشركة.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">10. كيف يمكنني تقديم طلب استقدام عمالة منزلية؟</div>
+                <div class="faq-answer">يمكنك تقديم الطلب بسهولة عبر النقر على أزرار الخدمة المطلوبة بالصفحة للتحدث مباشرة مع مستشاري التوظيف لدينا عبر الواتساب واختيار العاملة الأنسب لك.</div>
+            </div>
+        </section>
+
+        <!-- روابط السياسات تحت بعضها البعض مباشرة بدون أي مربع منقط -->
+        <section class="legal-vertical-container">
+            <div class="legal-vertical-title">الوثائق القانونية وشروط الامتثال للمنصة الإعلانية:</div>
+            <div class="legal-vertical-list">
+                <a href="privacy.html">سياسة الخصوصية</a>
+                <a href="terms.html">الشروط والأحكام</a>
+                <a href="disclaimer.html">إخلاء المسؤولية</a>
+                <a href="cookies.html">سياسة الكوكيز</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- الفوتر السفلي -->
+    <footer>
+        <div class="footer-container">
+            
+            <div class="footer-brand">منصة جسور للخدمات الإلكترونية</div>
+            <div class="footer-partnership">يتم تشغيل وإدارة طلبات التوريد والاستقدام الإقليمية بواسطة: بيست للتوسط في توريد العمالة</div>
+            
+            <div class="footer-grid">
+                <!-- العمود الأول: تفاصيل الرخصة الموحدة الرسمية -->
+                <div class="footer-col footer-links-grid">
+                    <div class="footer-info-title">البيانات القانونية والترخيص</div>
+                    <div class="info-item"><strong>الاسم التجاري:</strong> بيست للتوسط في توريد العمالة</div>
+                    <div class="info-item"><strong>الشكل القانوني:</strong> مؤسسة فردية</div>
+                    <div class="info-item"><strong>رقم الرخصة الموحدة:</strong> BD7314</div>
+                    <div class="info-item"><strong>رقم الرخصة التجاري:</strong> 854830</div>
+                    <div class="info-item"><strong>سلطة الإصدار:</strong> دائرة الاقتصاد والسياحة - دبي</div>
+                    <div class="info-item"><strong>النشاط المسجل:</strong> خدمات مكاتب التوسط في توريد العمالة (فعال)</div>
+                </div>
+
+                <!-- العمود الثاني: بيانات العنوان والتواصل -->
+                <div class="footer-col footer-links-grid">
+                    <div class="footer-info-title">بيانات العنوان والتواصل</div>
+                    <div class="info-item"><strong>العنوان الرسمي:</strong> مكتب 504 - ملك قاسم سلطان عبد الرحمن البنا - الممزر، دبي</div>
+                    <div class="info-item"><strong>صندوق بريد:</strong> 89679</div>
+                    <div class="info-item"><strong>البريد الإلكتروني المعتمد:</strong> info@bestmanpower.ae</div>
+                    <div class="info-item"><strong>منطقة تقديم الخدمة:</strong> توريد خارجي إقليمي مباشر</div>
+                </div>
+
+                <!-- العمود الثالث: روابط الأمان القانوني لجوجل المحدثة بملفات GitHub -->
+                <div class="footer-col footer-links-grid">
+                    <div class="footer-info-title">روابط الأمان والسياسات</div>
+                    <ul class="quick-links">
+                        <li><a href="privacy.html">سياسة الخصوصية والأمان</a></li>
+                        <li><a href="terms.html">الشروط والأحكام العامة</a></li>
+                        <li><a href="disclaimer.html">بيان إخلاء المسؤولية</a></li>
+                        <li><a href="cookies.html">سياسة ملفات تعريف الارتباط</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- حقوق الملكية الفكرية -->
+            <div class="copyright-bar">
+                جميع الحقوق محفوظة © 2026 لشركة بيست لتوريد العمالة ومنصة جسور التابعة لها.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
