@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشروط والأحكام - منصة جسور - بيست لتوريد العمالة</title>
+    <style>
+        /* إعادة تعيين الأنماط الأساسية لتطابق الصفحة الرئيسية */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-burgundy: #701331; /* اللون العنابي الرسمي */
+            --secondary-blue: #1b365d;  /* اللون الأزرق الداكن */
+            --light-bg: #fdfbf7;        /* خلفية مريحة للعين */
+            --text-dark: #333333;
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* الهيدر العلوي المتطابق */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid #f0e6e6;
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: block;
+            overflow: hidden;
+        }
+
+        .logo-right {
+            float: right;
+            margin-top: 6px;
+        }
+
+        .company-name-eng {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary-burgundy);
+            letter-spacing: 0.5px;
+            font-family: 'Arial Black', Gadget, sans-serif;
+        }
+
+        .left-controls {
+            float: left;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 3px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid #ccc;
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--text-dark);
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 22px;
+            height: 16px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-burgundy);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* تنسيق المحتوى القانوني الموسع */
+        .legal-page-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid #f0e6e6;
+        }
+
+        .legal-header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-burgundy);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .legal-title {
+            color: var(--primary-burgundy);
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .legal-subtitle {
+            color: var(--secondary-blue);
+            font-size: 14px;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        .legal-section-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #f5ecec;
+            padding-bottom: 20px;
+        }
+
+        .legal-section-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .section-num-title {
+            color: var(--secondary-blue);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-num-title span {
+            color: var(--primary-burgundy);
+        }
+
+        .section-content {
+            color: #444;
+            font-size: 15px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        /* الفوتر السفلي المتطابق */
+        footer {
+            background-color: var(--primary-burgundy);
+            color: var(--white);
+            padding: 40px 20px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .footer-partnership {
+            font-size: 14px;
+            text-align: center;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            color: #fddb3a;
+        }
+
+        .footer-info-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+        }
+
+        .footer-links-grid {
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            font-size: 14px;
+            margin-bottom: 10px;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .info-item strong {
+            color: #fddb3a;
+        }
+
+        .quick-links {
+            list-style: none;
+        }
+
+        .quick-links li {
+            margin-bottom: 8px;
+        }
+
+        .quick-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .quick-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .copyright-bar {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+            .footer-col {
+                display: table-cell;
+                vertical-align: top;
+                padding: 0 15px;
+            }
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر العلوي المتطابق -->
+    <header>
+        <div class="header-container clearfix">
+            <div class="logo-right">
+                <span class="company-name-eng">BEST MANPOWER SUPPLY</span>
+            </div>
+            <div class="left-controls">
+                <button class="lang-btn">EN 🌐</button>
+                <button class="menu-toggle" aria-label="القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى القانوني الموسع لصفحة الشروط والأحكام -->
+    <main>
+        <div class="legal-page-container">
+            <div class="legal-header">
+                <h1 class="legal-title">وثيقة الشروط والأحكام العامة</h1>
+                <p class="legal-subtitle">تاريخ التحديث الأخير والامتثال: يونيو 2026</p>
+            </div>
+
+            <!-- قسم 1 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>1.</span> مقدمة وتمهيد قانوني</h2>
+                <p class="section-content">أهلاً بكم في منصة جسور للخدمات الإلكترونية. تُشكل هذه الاتفاقية عقداً قانونياً ملزماً بين المستخدم وبين مؤسسة "بيست للتوسط في توريد العمالة". إن تصفحك للموقع أو استخدامك لأي من الخدمات المعروضة يعبر عن موافقتك الصريحة والكاملة على كافة البنود الواردة أدناه دون قيد أو شرط.</p>
+            </div>
+
+            <!-- قسم 2 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>2.</span> الهوية القانونية والتشغيلية</h2>
+                <p class="section-content">يتم تشغيل وإدارة هذه المنصة التسويقية والإلكترونية بوجب الشراكة التنفيذية والقانونية مع مؤسسة "بيست للتوسط في توريد العمالة"، وهي كيان فردي مرخص رسمياً في دبي تحت رخصة موحدة رقم BD7314 ورخصة تجارية رقم 854830 صادرة عن دائرة الاقتصاد والسياحة في دبي.</p>
+            </div>
+
+            <!-- قسم 3 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>3.</span> تعريف المصطلحات والعبارات</h2>
+                <p class="section-content">يقصد بالكلمات التالية أينما وردت في هذه الاتفاقية المعاني المحددة لها: "المنصة" تعني موقع جسور، "الشركة" تعني بيست لتوريد العمالة، "المستخدم" تعني كل من يتصفح الموقع، "الخدمة" تعني كافة طلبات واستشارات استقدام وتوريد الأيدي العاملة المنزلية.</p>
+            </div>
+
+            <!-- قسم 4 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>4.</span> أهلية الاستخدام القانونية</h2>
+                <p class="section-content">يقر المستخدم بأنه قد بلغ السن القانوني المقر في دولة الإمارات العربية المتحدة (18 عاماً ميلادياً) لإبرام العقود والالتزامات، وأنه يمتلك الأهلية العقلية والقانونية الكاملة للتعامل مع الخدمات الرقمية والتعاقدات الرسمية المرتبطة باستقدام وتوريد العمالة.</p>
+            </div>
+
+            <!-- قسم 5 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>5.</span> التعديلات والتغييرات المستمرة</h2>
+                <p class="section-content">تحتفظ الشركة بكامل الحق القانوني في تعديل، تحديث، أو تغيير أي جزء من أجزاء هذه الاتفاقية في أي وقت تراه مناسباً دون إشعار مسبق. تقع على عاتق المستخدم مسؤولية مراجعة هذه الصفحة بشكل دوري للوقوف على التحديثات والممارسات المنظمة الجديدة.</p>
+            </div>
+
+            <!-- قسم 6 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>6.</span> طبيعة الخدمة والوساطة الإقليمية</h2>
+                <p class="section-content">تعمل منصة جسور كواجهة إلكترونية وتنسيقية تابعة لـ "بيست لتوريد العمالة" لربط العملاء بطلبات استقدام وتوريد العمالة المنزلية الإقليمية المباشرة والمصرح بها قانوناً، وتخضع جميع الطلبات للقوانين والقرارات التنفيذية المنظمة لقطاع العمالة المساعدة.</p>
+            </div>
+
+            <!-- قسم 7 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>7.</span> شروط وسياسات التسعير</h2>
+                <p class="section-content">جميع الأسعار المعروضة على المنصة أو التي يتم مناقشتها مع مستشاري التوظيف هي أسعار استرشادية تخضع للتحديث المستمر بناءً على جنسية العمالة، والخبرات، والاشتراطات الحكومية، والتكلفة التشغيلية، ولا تعتبر نهائية إلا بعد توقيع العقد الرسمي الفردي.</p>
+            </div>
+
+            <!-- قسم 8 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>8.</span> سياسة حجز طلبات العمالة</h2>
+                <p class="section-content">عند قيام العميل بطلب عاملة منزلية (بالساعة، اليوم، أو مقيمة) عبر قنوات الاتصال المتاحة كالواتساب، فإن الطلب يعبر عن رغبة مبدئية في التعاقد، ولا يترتب عليه أي التزام قانوني على الشركة بتوفير نفس السيرة الذاتية إلا في حال توفرها وتوقيع العقد الفعلي.</p>
+            </div>
+
+            <!-- قسم 9 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>9.</span> الالتزامات المالية للعميل</h2>
+                <p class="section-content">يلتزم المستخدم بسداد كافة الرسوم والتكاليف المالية المحددة في العقود الرسمية من خلال طرق الدفع المعتمدة لدى الشركة، ويجب أن تتم كافة التحويلات للحسابات البنكية الرسمية المسجلة باسم مؤسسة بيست للتوسط في توريد العمالة فقط لضمان سلامة التعامل القانوني.</p>
+            </div>
+
+            <!-- قسم 10 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>10.</span> سياسة الإلغاء والاسترجاع</h2>
+                <p class="section-content">تخضع عمليات إلغاء العقود واسترجاع المبالغ المدفوعة للأحكام المحددة في عقود التوسط والتوظيف الرسمية الثنائية الموقعة بين الطرفين ووفقاً للوائح والقوانين التنفيذية لوزارة الموارد البشرية والتوطين، والقرارات الإدارية السارية المفعول وقت تقديم طلب الإلغاء.</p>
+            </div>
+
+            <!-- قسم 11 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>11.</span> حدود المسؤولية القانونية للمنصة</h2>
+                <p class="section-content">لا تتحمل المنصة أو الشركة أي مسؤولية عن أي أضرار مباشرة، غير مباشرة، عرضية، أو تبعية تنتج عن استخدام أو عدم القدرة على استخدام الموقع الإلكتروني، أو عن أي تأخير خارج عن إرادة الشركة في إنهاء إجراءات الاستقدام الناتجة عن الجهات الخارجية أو الحكومية.</p>
+            </div>
+
+            <!-- قسم 12 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>12.</span> حقوق الملكية الفكرية والعلامات التجارية</h2>
+                <p class="section-content">كافة محتويات المنصة بما يشمل النصوص، التصاميم، الشعارات، الأيقونات، البرمجيات، الواجهات، وتنسيق الألوان هي ملكية فكرية حصرية تابعة للشركة ومنصاتها المرتبطة، ويحظر تماماً نسخ، تقليد، أو استخدام أي جزء منها للأغراض التجارية دون إذن كتابي مسبق.</p>
+            </div>
+
+            <!-- قسم 13 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>13.</span> الاستخدام المقبول والمحظور للموقع</h2>
+                <p class="section-content">يمنع منعاً باتاً استخدام المنصة للقيام بأي أنشطة غير قانونية، أو إدخال فيروسات، أو محاولة اختراق الواجهات البرمجية، أو استخدام أدوات جمع البيانات الآلية، أو استغلال الثغرات البرمجية لإلحاق الضرر بالخوادم أو الإضرار بالمستخدمين الآخرين بأي شكل من الأشكال.</p>
+            </div>
+
+            <!-- قسم 14 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>14.</span> دقة ومصداقية المعلومات المعروضة</h2>
+                <p class="section-content">تبذل الشركة أقصى جهودها لضمان تحديث ودقة كافة البيانات والتفاصيل المنشورة في المنصة، ومع ذلك فإن المعلومات قد تحتوي على بعض الأخطاء المطبعية أو الفنية الطارئة، وبالتالي تقدم المعلومات "كما هي" دون ضمانات صريحة أو ضمنية للمطابقة التامة.</p>
+            </div>
+
+            <!-- قسم 15 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>15.</span> القانون الواجب التطبيق والولاية القضائية</h2>
+                <p class="section-content">تخضع هذه الشروط والأحكام وتُفسر بالكامل وفقاً للقوانين والتشريعات المحلية والاتحادية النافذة في إمارة دبي ودولة الإمارات العربية المتحدة، وتختص محاكم دبي حصرياً بالنظر والبت في أي نزاع أو مطالبة قانونية تنشأ عن استخدام هذه المنصة.</p>
+            </div>
+
+            <!-- قسم 16 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>16.</span> شروط ومواصفات العمالة المستقدمة</h2>
+                <p class="section-content">تلتزم الشركة بمطابقة مواصفات العاملة المنزلية بناءً على السير الذاتية المعتمدة والموقعة من العميل، وفي حال ثبت عدم مطابقة العمالة للمواصفات الأساسية المتفق عليها عند الوصول، يحق للعميل المطالبة بالاستبدال الفوري وفق الضوابط التعاقدية المعمول بها.</p>
+            </div>
+
+            <!-- قسم 17 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>17.</span> الفحوصات الطبية والأهلية الصحية</h2>
+                <p class="section-content">تضمن الشركة خضوع جميع الأيدي العاملة المنزلية المستقدمة لكافة الفحوصات الطبية المقررة والإلزامية محلياً ودولياً للتأكد من خلوهم التام من الأمراض المعدية أو المزمنة التي تمنعهم من أداء مهامهم المهنية، وذلك قبل تسليمهم رسمياً إلى أصحاب العمل.</p>
+            </div>
+
+            <!-- قسم 18 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>18.</span> الضمان وفترة التجربة القانونية</h2>
+                <p class="section-content">يتمتع العميل بفترة ضمان تعاقدية قانونية محددة في العقد الرسمي تبدأ من تاريخ استلام العاملة، وتغطي هذه الفترة حالات امتناع العاملة عن العمل، أو الهروب، أو ثبوت عدم اللياقة الصحية والنفسية، حيث تتعهد الشركة بتوفير البديل دون تحميل العميل رسوماً إضافية.</p>
+            </div>
+
+            <!-- قسم 19 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>19.</span> مسؤولية العميل تجاه العمالة المنزلية</h2>
+                <p class="section-content">يتعهد العميل بمعاملة العمالة المنزلية المستقدمة معاملة إنسانية لائقة تتوافق مع القوانين وحقوق الإنسان في دولة الإمارات العربية المتحدة، والالتزام بتوفير السكن الملائم، الوجبات الغذائية، الرعاية الصحية، وسداد الرواتب الشهرية في مواعيدها دون تأخير.</p>
+            </div>
+
+            <!-- قسم 20 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>20.</span> سياسة الخصوصية وحماية البيانات الشخصية</h2>
+                <p class="section-content">تلتزم المنصة بحماية وسرية البيانات الشخصية والمعلومات التي يقدمها العميل أثناء التواصل أو حجز الخدمات. يتم معالجة وتخزين هذه البيانات وفقاً لـ "سياسة الخصوصية" المعتمدة لدينا المتوافقة مع معايير الأمان الرقمية والامتثال للمنصات الإعلانية العالمية.</p>
+            </div>
+
+            <!-- قسم 21 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>21.</span> الروابط الخارجية ومواقع الطرف الثالث</h2>
+                <p class="section-content">قد تحتوي المنصة على روابط تشعبية تؤدي إلى مواقع أو منصات خارجية تديرها أطراف أخرى (مثل تطبيق الواتساب أو بوابات الدفع). توفر الشركة هذه الروابط لتسهيل الممارسات فقط، ولا تتحمل أي مسؤولية عن محتوى أو سياسات أو ممارسات تلك المواقع المستقلة.</p>
+            </div>
+
+            <!-- قسم 22 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>22.</span> القوة القاهرة والظروف الاستثنائية</h2>
+                <p class="section-content">تُعفى الشركة من المسؤولية القانونية عن أي تأخير أو فشل في تنفيذ التزاماتها إذا كان ذلك ناتجاً عن ظروف القوة القاهرة الخارجة عن إرادتها، ويشمل ذلك على سبيل المثال لا الحصر: الحروب، الكوارث الطبيعية، الأوبئة، إغلاق المطارات، أو القرارات الفجائية للدول المصدرة.</p>
+            </div>
+
+            <!-- قسم 23 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>23.</span> إنهاء الخدمة وإغلاق إمكانية الوصول</h2>
+                <p class="section-content">نحتفظ بالحق في حظر أو تقييد وصول أي مستخدم إلى المنصة أو قنوات الاتصال التابعة لها فوراً وبدون إنذار مسبق، إذا تبين للشركة ارتكاب المستخدم لأي انتهاك صريح للبنود الواردة بهذه الاتفاقية، أو قيامه بممارسات تضر بالسمعة التجارية للكيان القانوني للشركة.</p>
+            </div>
+
+            <!-- قسم 24 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>24.</span> بطلان بند أو جزء من البنود</h2>
+                <p class="section-content">إذا تبين لأي محكمة مختصة أو سلطة قانونية أن أي بند من بنود هذه الاتفاقية باطل، أو غير قانوني، أو غير قابل للتنفيذ، فإن هذا البطلان لا يؤثر على سلامة ونفاذ بقية البنود والأحكام الأخرى الواردة في الوثيقة، والتي تظل سارية المفعول بكامل قوتها القانونية.</p>
+            </div>
+
+            <!-- قسم 25 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>25.</span> استقلالية الأطراف والتعاقد</h2>
+                <p class="section-content">إن استخدامك للمنصة لا ينشأ عنه أي علاقة شراكة، أو وكالة، أو توظيف، أو مشروع مشترك بين المستخدم وبين الشركة. وتظل العلاقة الحاكمة لطلب الخدمات هي علاقة تعاقدية محددة بالوثائق والعقود الرسمية المنفصلة والموقعة لكل معاملة على حدة.</p>
+            </div>
+
+            <!-- قسم 26 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>26.</span> منع التنازل عن الحقوق</h2>
+                <p class="section-content">إن عدم قيام الشركة بممارسة أو تنفيذ أي حق أو بند من بنود هذه الاتفاقية في وقت معين لا يعتبر تنازلاً قانونياً من طرفها عن هذا الحق أو البند، ويحق للشركة التمسك به وتطبيقه في أي وقت لاحق وضد أي انتهاكات مستقبلية من قبل المستخدم.</p>
+            </div>
+
+            <!-- قسم 27 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>27.</span> شروط الامتثال للإعلانات الرقمية</h2>
+                <p class="section-content">تم صياغة هذه الصفحة والالتزام بكافة معايير الشفافية والإفصاح القانوني لتلبية شروط الامتثال المفروضة من شبكات الإعلانات العالمية (مثل جوجل ادز). تلتزم المنصة بتقديم بيانات الهوية الحقيقية والتراخيص الرسمية دون تضليل أو ممارسات خادعة للمستهلك.</p>
+            </div>
+
+            <!-- قسم 28 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>28.</span> الاتصالات الرسمية والإشعارات الإلكترونية</h2>
+                <p class="section-content">يوافق المستخدم على أن كافة الاتصالات والمراسلات والإشعارات والاتفاقيات التي تقدمها الشركة له إلكترونياً (عبر البريد الإلكتروني، أو قنوات المراسلة الفورية، أو المنصة) تلبي تماماً الشروط القانونية للمراسلات المكتوبة والخطية المعتمدة.</p>
+            </div>
+
+            <!-- قسم 29 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>29.</span> حدود المسؤولية الفنية والبرمجية لخوادم الموقع</h2>
+                <p class="section-content">تبذل الشركة جهوداً فنية مستمرة لضمان بقاء المنصة متاحة وخالية من الانقطاعات والأخطاء التقنية. ومع ذلك، لا تضمن الشركة أن يعمل الموقع دون انقطاع لأغراض الصيانة الدورية أو التحديثات الفنية الطارئة، ولا تتحمل مسؤولية فقدان أي بيانات بسبب عطل طارئ.</p>
+            </div>
+
+            <!-- قسم 30 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>30.</span> التعويضات وإبراء الذمة القانونية</h2>
+                <p class="section-content">يوافق المستخدم على تعويض الشركة، ومسؤوليها، ومديريها، وموظفيها، ووكلاء التراخيص التابعين لها، وحمايتهم وإبراء ذمتهم من وضد أي مطالبات، أو خسائر، أو التزامات، أو أضرار، أو تكاليف (بما في ذلك أتعاب المحاماة) تنشأ عن انتهاكه لشروط الاستخدام.</p>
+            </div>
+
+            <!-- قسم 31 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>31.</span> حظر الممارسات التنافسية غير المشروعة</h2>
+                <p class="section-content">يحظر على الشركات المنافسة أو الأفراد استغلال المحتوى القانوني، أو الهيكلية التنظيمية، أو البيانات الترخيصية المنشورة على هذه المنصة لإعادة استخدامها أو تكييفها لمواقع أخرى، وتعتبر هذه الممارسات خروجاً عن قواعد التنافس المشروع وتخضع للمساءلة القانونية والقضائية الفورية.</p>
+            </div>
+
+            <!-- قسم 32 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>32.</span> سياسة معالجة الشكاوى والاعتراضات</h2>
+                <p class="section-content">في حال وجود أي اعتراض أو شكوى تتعلق بالخدمات أو البيانات المعروضة، يلتزم المستخدم برفعها أولاً عبر القنوات الرسمية المحددة (البريد الإلكتروني للشركة)، وتتعهد إدارة الامتثال بمراجعة الشكوى والرد عليها خلال مدة أقصاها 14 يوم عمل للوصول إلى تسوية ودية.</p>
+            </div>
+
+            <!-- قسم 33 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>33.</span> طبيعة التراخيص الحكومية المنظمة للعمل</h2>
+                <p class="section-content">يقر المستخدم بعلمه التام بأن كافة خدمات الأيدي العاملة المنزلية ترتبط بتراخيص سيادية وتنظيمية تصدر عن الجهات الحكومية بدولة الإمارات. وإن أي تغير فجائي في اللوائح التنظيمية لتلك الجهات ينعكس مباشرة على شروط تقديم الخدمة والمدد الزمنية دون مسؤولية على عاتق المنصة.</p>
+            </div>
+
+            <!-- قسم 34 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>34.</span> حماية أمن معلومات الحسابات والبيانات الممررة</h2>
+                <p class="section-content">تطبق المنصة تقنيات تشفير متطورة لحماية البيانات الممررة عبر النماذج الإلكترونية. يلتزم المستخدم بعدم تمرير أي بيانات مالية حساسة أو كلمات مرور عبر قنوات الاتصال العامة، وتقتصر البيانات المطلوبة على تفاصيل طلب الاستقدام والبيانات التعريفية الأساسية فقط.</p>
+            </div>
+
+            <!-- قسم 35 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>35.</span> شروط تقديم خدمات العمالة بالساعة واليوم</h2>
+                <p class="section-content">تخضع خدمات العمالة المنزلية بنظام الساعة أو اليوم لجدول التوزيع الجغرافي والمواعيد المحددة مسبقاً من الشركة. ويجب على العميل إلغاء أو تعديل موعد الخدمة قبل 24 ساعة على الأقل من الموعد المقرر، وإلا احتسبت الرسوم الإدارية المترتبة على تحرك وانتقال العمالة.</p>
+            </div>
+
+            <!-- قسم 36 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>36.</span> الالتزام بالاتفاقيات الدولية ومكافحة الاتجار بالبشر</h2>
+                <p class="section-content">تلتزم الشركة والمنصة التزاماً صارماً بكافة القوانين والاتفاقيات الدولية المنظمة للعمل وحقوق العمال ومكافحة الاتجار بالبشر. تضمن الشركة تمتع كافة العمالة بحقوقهم القانونية والصحية كاملة، وتصاغ العقود الرسمية بما يحمي كرامة وحقوق العامل وصاحب العمل على حد سواء.</p>
+            </div>
+
+            <!-- قسم 37 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>37.</span> الإفصاح عن عمولات التوسط والرسوم الإدارية</h2>
+                <p class="section-content">تتسم كافة المعاملات المالية بالشفافية الكاملة، حيث يتم تبيان كافة الرسوم الإدارية وعمولات التوسط الخاصة بالاستقدام بشكل صريح ومفصل في عقود الخدمات المبرمة، ولا توجد أي رسوم مخفية أو إضافية يتم فرضها على العميل بعد توقيع الاتفاق والبدء في المعاملة الإجرائية.</p>
+            </div>
+
+            <!-- section 38 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>38.</span> شروط نقل الكفالة وإصدار الإقامات الرسمية</h2>
+                <p class="section-content">تتولى مؤسسة بيست لخدمات التوسط كافة التدابير القانونية المرتبطة بنقل البيانات وإصدار إقامات العمالة المساعدة وفق الممارسات المتبعة بدائرة الهجرة والإقامة. ولا تؤول المسؤولية القانونية الكاملة للعامل إلى الكفيل الجديد إلا بعد صدور بطاقة الإقامة والهوية الرسمية باسمه.</p>
+            </div>
+
+            <!-- section 39 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>39.</span> حظر إعادة التوجيه والتحايل البرمجي</h2>
+                <p class="section-content">يقر المستخدم ويوافق على عدم استخدام أي برمجيات أو أدوات تستهدف إعادة توجيه الروابط المتاحة على المنصة، أو استخدام تقنيات التحايل والنوافذ المنبثقة الخفية، وجميع الروابط الموجهة للواتساب صريحة وواضحة لتوفير تجربة مستخدم آمنة وممتثلة تماماً لسياسات التصفح السليم.</p>
+            </div>
+
+            <!-- section 40 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>40.</span> حدود مسؤولية المحتوى الترويجي والوصفي</h2>
+                <p class="section-content">جميع المواد المرئية والصور والعبارات الوصفية المستخدمة في النشرات الترويجية أو صفحات الهبوط هي مواد تهدف إلى تقريب صورة الخدمة وتوضيح جودة الرعاية المقدمة، ولا تعني بالضرورة مطابقتها الحرفية للشكل الفردي للعاملة المخصصة، فالعبرة بالبيانات التعاقدية الرسمية.</p>
+            </div>
+
+            <!-- section 41 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>41.</span> شروط تحديث وثائق الامتثال للمنصة</h2>
+                <p class="section-content">يتم مراجعة شروط الامتثال القانوني الرقمي لهذه الوثيقة بشكل دوري بواسطة مستشارينا القانونيين لضمان تماشيها مع أي قرارات وزارية جديدة تصدر في الدولة، وتعتبر الوثيقة المحدثة والمنشورة إلكترونياً على هذا الرابط هي المرجع القانوني الساري والملغي لما قبله تلقائياً.</p>
+            </div>
+
+            <!-- section 42 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>42.</span> سياسة الحفاظ على أمن وسلامة العمالة</h2>
+                <p class="section-content">تحتفظ الشركة بالحق في متابعة حالة العمالة المنزلية المستقرة لدى الكفلاء عبر قنوات المتابعة الدورية للاطمئنان على استقرار ظروف العمل. وفي حال ثبوت تعرض العاملة لأي شكل من أشكال الإيذاء أو انتهاك حقوقها القانونية، يحق للشركة اتخاذ الإجراءات الرسمية لحمايتها.</p>
+            </div>
+
+            <!-- section 43 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>43.</span> الإقرار الإلكتروني الشامل بالقبول بالبنود</h2>
+                <p class="section-content">إن نقر المستخدم على أي رابط للتواصل، أو تعبئة نموذج حجز خدمة، أو البقاء متصفحاً لمنصة جسور، يعتبر إقراراً إلكترونياً تاماً ونهائياً وذا حجية قانونية كاملة بالقبول والالتزام بكافة ما ورد في هذه الاتفاقية من شروط وأحكام والتزامات متبادلة دون الحاجة لتوقيع خطي.</p>
+            </div>
+
+            <!-- section 44 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>44.</span> بيان استقلالية العلامات التجارية الشريكة</h2>
+                <p class="section-content">توضح المنصة أن الإشارة إلى أي جهات حكومية، أو وزارات، أو هيئات رسمية، أو منصات تواصل مثل (واتساب) هي إشارات تعريفية تنظيمية فقط لتبيان مسار الخدمة والتواصل، ولا تعني وجود رعاية، أو ملكية، أو شراكة تجارية مع تلك العلامات المستقلة والسيادية.</p>
+            </div>
+
+            <!-- section 45 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>45.</span> معلومات التواصل القانوني المعتمدة للشركة</h2>
+                <p class="section-content">لأي استفسارات قانونية أو إدارية تتعلق بوثيقة الشروط والأحكام والامتثال، يرجى التواصل مباشرة مع إدارة مؤسسة بيست للتوسط في توريد العمالة عبر القنوات الرسمية: مكتب 504، ملك قاسم سلطان عبد الرحمن البنا، الممزر، دبي، الإمارات العربية المتحدة، أو عبر البريد الإلكتروني: info@bestmanpower.ae.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- الفوتر السفلي المتطابق بالكامل -->
+    <footer>
+        <div class="footer-container">
+            
+            <div class="footer-brand">منصة جسور للخدمات الإلكترونية</div>
+            <div class="footer-partnership">يتم تشغيل وإدارة طلبات التوريد والاستقدام الإقليمية بواسطة: بيست للتوسط في توريد العمالة</div>
+            
+            <div class="footer-grid">
+                <!-- العمود الأول: تفاصيل الرخصة الموحدة الرسمية -->
+                <div class="footer-col footer-links-grid">
+                    <div class="footer-info-title">البيانات القانونية والترخيص</div>
+                    <div class="info-item"><strong>الاسم التجاري:</strong> بيست للتوسط في توريد العمالة</div>
+                    <div class="info-item"><strong>الشكل القانوني:</strong> مؤسسة فردية</div>
+                    <div class="info-item"><strong>رقم الرخصة الموحدة:</strong> BD7314</div>
+                    <div class="info-item"><strong>رقم الرخصة التجاري:</strong> 854830</div>
+                    <div class="info-item"><strong>سلطة الإصدار:</strong> دائرة الاقتصاد والسياحة - دبي</div>
+                    <div class="info-item"><strong>النشاط المسجل:</strong> خدمات مكاتب التوسط في توريد العمالة (فعال)</div>
+                </div>
+
+                <!-- العمود الثاني: بيانات العنوان والتواصل -->
+                <div class="footer-col footer-links-grid">
+                    <div class="footer-info-title">بيانات العنوان والتواصل</div>
+                    <div class="info-item"><strong>العنوان الرسمي:</strong> مكتب 504 - ملك قاسم سلطان عبد الرحمن البنا - الممزر، دبي</div>
+                    <div class="info-item"><strong>صندوق بريد:</strong> 89679</div>
+                    <div class="info-item"><strong>البريد الإلكتروني المعتمد:</strong> info@bestmanpower.ae</div>
+                    <div class="info-item"><strong>منطقة تقديم الخدمة:</strong> توريد خارجي إقليمي مباشر</div>
+                </div>
+
+                <!-- العمود الثالث: روابط الأمان القانوني لجوجل المحدثة بملفات GitHub -->
+                <div class="footer-col footer-links-grid">
+                    <div class="footer-info-title">روابط الأمان والسياسات</div>
+                    <ul class="quick-links">
+                        <li><a href="privacy.html">سياسة الخصوصية والأمان</a></li>
+                        <li><a href="terms.html">الشروط والأحكام العامة</a></li>
+                        <li><a href="disclaimer.html">بيان إخلاء المسؤولية</a></li>
+                        <li><a href="cookies.html">سياسة ملفات تعريف الارتباط</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- حقوق الملكية الفكرية -->
+            <div class="copyright-bar">
+                جميع الحقوق محفوظة © 2026 لشركة بيست لتوريد العمالة ومنصة جسور التابعة لها.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
