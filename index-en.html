@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jusoor Human Resources Solutions - Best Manpower Supply</title>
+    <style>
+        /* Reset basic styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-burgundy: #701331; /* Official Burgundy */
+            --secondary-blue: #1b365d;  /* Dark Blue */
+            --light-bg: #fdfbf7;        /* Eye-friendly background */
+            --text-dark: #333333;
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Top Header */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid #f0e6e6;
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: block;
+            overflow: hidden;
+        }
+
+        .logo-left {
+            float: left;
+            margin-top: 6px;
+        }
+
+        .company-name-eng {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary-burgundy);
+            letter-spacing: 0.5px;
+            font-family: 'Arial Black', Gadget, sans-serif;
+        }
+
+        .right-controls {
+            float: right;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 3px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid #ccc;
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--text-dark);
+            font-weight: bold;
+        }
+
+        /* Menu Toggle (Hamburger Menu) */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 22px;
+            height: 16px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-burgundy);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero / Main Introduction Section */
+        .hero-section {
+            text-align: center;
+            padding: 50px 20px 30px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            color: var(--primary-burgundy);
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            color: var(--secondary-blue);
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .hero-description {
+            color: #555;
+            font-size: 16px;
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: rgba(112, 19, 49, 0.04);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-burgundy);
+        }
+
+        /* Services Section */
+        .services-section {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .services-title {
+            color: var(--secondary-blue);
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .services-subtitle {
+            color: #777;
+            font-size: 15px;
+            margin-bottom: 35px;
+        }
+
+        /* Service Card Layout */
+        .service-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(112, 19, 49, 0.05);
+            border: 1px solid #f2eded;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .icon-container {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-burgundy);
+            border-radius: 15px;
+            margin: 0 auto 15px auto;
+            display: table;
+        }
+
+        .icon-container span {
+            display: table-cell;
+            vertical-align: middle;
+            color: var(--white);
+            font-size: 26px;
+        }
+
+        .action-button {
+            display: block;
+            width: 100%;
+            background-color: var(--primary-burgundy);
+            color: var(--white);
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-button:hover {
+            background-color: #550e24;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 700px;
+            margin: 50px auto 10px auto;
+            padding: 20px;
+        }
+
+        .faq-title {
+            text-align: center;
+            color: var(--secondary-blue);
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border: 1px solid #e6dfdf;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .faq-question {
+            padding: 18px;
+            font-weight: bold;
+            color: var(--primary-burgundy);
+            cursor: pointer;
+            background-color: #fff;
+            position: relative;
+            font-size: 16px;
+            border-bottom: 1px solid #f9f6f6;
+        }
+
+        .faq-answer {
+            padding: 18px;
+            color: #555;
+            font-size: 15px;
+            background-color: #faf8f5;
+            line-height: 1.7;
+        }
+
+        /* Vertical alignment for policies without dotted borders */
+        .legal-vertical-container {
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .legal-vertical-title {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .legal-vertical-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .legal-vertical-list a {
+            color: var(--primary-burgundy);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border-bottom: 1px dashed var(--primary-burgundy);
+            padding-bottom: 2px;
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .legal-vertical-list a:hover {
+            color: var(--secondary-blue);
+            border-bottom-color: var(--secondary-blue);
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: var(--primary-burgundy);
+            color: var(--white);
+            padding: 40px 20px 20px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .footer-partnership {
+            font-size: 14px;
+            text-align: center;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            color: #fddb3a;
+        }
+
+        .footer-info-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+        }
+
+        .footer-links-grid {
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            font-size: 14px;
+            margin-bottom: 10px;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .info-item strong {
+            color: #fddb3a;
+        }
+
+        .quick-links {
+            list-style: none;
+        }
+
+        .quick-links li {
+            margin-bottom: 8px;
+        }
+
+        .quick-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .quick-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .copyright-bar {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+            .footer-col {
+                display: table-cell;
+                vertical-align: top;
+                padding: 0 15px;
+            }
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-container clearfix">
+            <div class="logo-left">
+                <span class="company-name-eng">BEST MANPOWER SUPPLY</span>
+            </div>
+            <div class="right-controls">
+                <button class="lang-btn" onclick="location.href='index.html'">AR 🌐</button>
+                <button class="menu-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <section class="hero-section">
+            <h1 class="hero-title">Human Resources Solutions Company</h1>
+            <h2 class="hero-subtitle">Jusoor</h2>
+            <p class="hero-description">
+                The approved regional deployment and recruitment portal providing immediate domestic helper services and human resources solutions, in full legal and executive cooperation with Best Manpower Supply.
+            </p>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <h3 class="services-title">Our Services</h3>
+            <p class="services-subtitle">Choose the most suitable service for your needs to start instantly</p>
+
+            <!-- Card 1: Hourly -->
+            <div class="service-card">
+                <div class="icon-container">
+                    <span>⏱</span>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=97400000000&text=Hello%2C%20I%20would%20like%20to%20request%20an%20hourly%20domestic%20worker" class="action-button">Request Hourly Maid</a>
+            </div>
+
+            <!-- Card 2: Daily -->
+            <div class="service-card">
+                <div class="icon-container">
+                    <span>📅</span>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=97400000000&text=Hello%2C%20I%20would%20like%20to%20request%20a%20daily%20domestic%20worker" class="action-button">Request Daily Maid</a>
+            </div>
+
+            <!-- Card 3: Live-in -->
+            <div class="service-card">
+                <div class="icon-container">
+                    <span>🏡</span>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=97400000000&text=Hello%2C%20I%20would%20like%20to%20request%20a%20live-in%20domestic%20worker" class="action-button">Request Live-in Maid</a>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h3 class="faq-title">Frequently Asked Questions (FAQ)</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">1. What nationalities are available for recruiting domestic workers?</div>
+                <div class="faq-answer">We provide qualified and well-trained domestic workers from multiple nationalities, including the Philippines, Indonesia, Kenya, Ethiopia, Sri Lanka, and Bangladesh, matching diverse client requirements.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">2. Are the hourly and daily domestic workers trained and guaranteed?</div>
+                <div class="faq-answer">Yes, all workers under the hourly or daily system are professionally trained to the highest standards of cleanliness, hospitality, and overall household management.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">3. What guarantees does the company offer to the client?</div>
+                <div class="faq-answer">We offer a comprehensive and official guarantee for live-in domestic workers in cases of refusal to work, illness, or lack of competence. The worker will be replaced immediately without any extra charges during the guarantee period.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">4. How long does it take to finalize the recruitment process for a live-in maid?</div>
+                <div class="faq-answer">The formal procedures for international recruitment take from 15 to 30 days maximum, with regular updates provided to the client regarding the application status and arrival date.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">5. Do you have domestic workers with prior experience in the Gulf?</div>
+                <div class="faq-answer">Yes, we have a specialized division for workers who possess extensive prior experience within the GCC countries, fully capable of cooking, managing households, and understanding Gulf traditions.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">6. How are the recruitment costs and monthly salaries calculated?</div>
+                <div class="faq-answer">Costs and monthly salaries vary depending on the worker's nationality, service type (hourly/daily/live-in), and professional experience. We always ensure competitive and flexible pricing.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">7. Does the company complete all legal procedures and medical examinations?</div>
+                <div class="faq-answer">Absolutely. Our company handles all legal processing, starting from comprehensive medical examinations, residency issuance, health insurance, up to delivering the worker right to your doorstep.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">8. Can I choose and specify the worker's qualifications myself?</div>
+                <div class="faq-answer">Yes, we allow you to review full resumes and profiles of candidates, plus the option to conduct a direct video interview before finalizing the contract to ensure a perfect match.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">9. What are the payment methods available to complete the contract?</div>
+                <div class="faq-answer">We offer secure and diverse payment options to facilitate transactions for our clients, including direct online payments, official bank transfers, or cash payments at our headquarters.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">10. How can I submit a domestic worker recruitment request?</div>
+                <div class="faq-answer">You can easily submit a request by clicking on the required service buttons on this page to chat directly with our recruitment consultants via WhatsApp and select your ideal worker.</div>
+            </div>
+        </section>
+
+        <!-- Policy Documents Links Arranged Vertically without boxes -->
+        <section class="legal-vertical-container">
+            <div class="legal-vertical-title">Legal Documents & Advertising Platform Compliance:</div>
+            <div class="legal-vertical-list">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms and Conditions</a>
+                <a href="disclaimer.html">Disclaimer</a>
+                <a href="cookies.html">Cookie Policy</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            
+            <div class="footer-brand">Jusoor Electronic Services Platform</div>
+            <div class="footer-partnership">Regional deployment and recruitment requests are operated and managed by: Best Manpower Supply</div>
+            
+            <div class="footer-grid">
+                <!-- Column 1: Legal Data -->
+                <div class="footer-col footer-links-grid">
+                    <div class="footer-info-title">Legal Data & Licensing</div>
+                    <div class="info-item"><strong>Trade Name:</strong> Best Manpower Supply</div>
+                    <div class="info-item"><strong>Legal Form:</strong> Sole Proprietorship</div>
+                    <div class="info-item"><strong>Unified License No:</strong> BD7314</div>
+                    <div class="info-item"><strong>Commercial License No:</strong> 854830</div>
+                    <div class="info-item"><strong>Issuing Authority:</strong> Department of Economy and Tourism - Dubai</div>
+                    <div class="info-item"><strong>Registered Activity:</strong> Domestic Worker Brokerage Offices Services (Active)</div>
+                </div>
+
+                <!-- Column 2: Address and Contact -->
+                <div class="footer-col footer-links-grid">
+                    <div class="footer-info-title">Address & Contacts</div>
+                    <div class="info-item"><strong>Official Address:</strong> Office 504 - Property of Qasim Sultan Abdulrahman Al Banna - Al Mamzar, Dubai</div>
+                    <div class="info-item"><strong>P.O. Box:</strong> 89679</div>
+                    <div class="info-item"><strong>Approved Email:</strong> info@bestmanpower.ae</div>
+                    <div class="info-item"><strong>Service Coverage Area:</strong> Direct Regional External Supply</div>
+                </div>
+
+                <!-- Column 3: Safety & Google Policy Links -->
+                <div class="footer-col footer-links-grid">
+                    <div class="footer-info-title">Safety & Policies Links</div>
+                    <ul class="quick-links">
+                        <li><a href="privacy.html">Privacy & Security Policy</a></li>
+                        <li><a href="terms.html">General Terms & Conditions</a></li>
+                        <li><a href="disclaimer.html">Disclaimer Statement</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyrights -->
+            <div class="copyright-bar">
+                All rights reserved © 2026 Best Manpower Supply and its affiliate Jusoor Platform.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
