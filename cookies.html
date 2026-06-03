@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة ملفات تعريف الارتباط - منصة جسور - بيست لتوريد العمالة</title>
+    <style>
+        /* إعادة تعيين الأنماط الأساسية لتطابق الصفحة الرئيسية وباقي الصفحات */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-burgundy: #701331; /* اللون العنابي الرسمي */
+            --secondary-blue: #1b365d;  /* اللون الأزرق الداكن */
+            --light-bg: #fdfbf7;        /* خلفية مريحة للعين */
+            --text-dark: #333333;
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* الهيدر العلوي المتطابق */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid #f0e6e6;
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: block;
+            overflow: hidden;
+        }
+
+        .logo-right {
+            float: right;
+            margin-top: 6px;
+        }
+
+        .company-name-eng {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary-burgundy);
+            letter-spacing: 0.5px;
+            font-family: 'Arial Black', Gadget, sans-serif;
+        }
+
+        .left-controls {
+            float: left;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 3px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid #ccc;
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--text-dark);
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 22px;
+            height: 16px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-burgundy);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* تنسيق المحتوى القانوني لسياسة الكوكيز */
+        .legal-page-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid #f0e6e6;
+        }
+
+        .legal-header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-burgundy);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .legal-title {
+            color: var(--primary-burgundy);
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .legal-subtitle {
+            color: var(--secondary-blue);
+            font-size: 14px;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        .legal-section-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #f5ecec;
+            padding-bottom: 20px;
+        }
+
+        .legal-section-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .section-num-title {
+            color: var(--secondary-blue);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-num-title span {
+            color: var(--primary-burgundy);
+        }
+
+        .section-content {
+            color: #444;
+            font-size: 15px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        /* تنسيق الجداول لتوضيح أنواع ملفات الارتباط */
+        .cookies-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+
+        .cookies-table th, .cookies-table td {
+            border: 1px solid #e0d0d0;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .cookies-table th {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+        }
+
+        .cookies-table tr:nth-child(even) {
+            background-color: #fcf9f9;
+        }
+
+        /* الفوتر السفلي المتطابق */
+        footer {
+            background-color: var(--primary-burgundy);
+            color: var(--white);
+            padding: 40px 20px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .footer-partnership {
+            font-size: 14px;
+            text-align: center;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            color: #fddb3a;
+        }
+
+        .footer-info-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+        }
+
+        .footer-links-grid {
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            font-size: 14px;
+            margin-bottom: 10px;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .info-item strong {
+            color: #fddb3a;
+        }
+
+        .quick-links {
+            list-style: none;
+        }
+
+        .quick-links li {
+            margin-bottom: 8px;
+        }
+
+        .quick-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .quick-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .copyright-bar {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+            .footer-col {
+                display: table-cell;
+                vertical-align: top;
+                padding: 0 15px;
+            }
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر العلوي المتطابق -->
+    <header>
+        <div class="header-container clearfix">
+            <div class="logo-right">
+                <span class="company-name-eng">BEST MANPOWER SUPPLY</span>
+            </div>
+            <div class="left-controls">
+                <button class="lang-btn">EN 🌐</button>
+                <button class="menu-toggle" aria-label="القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى القانوني لسياسة ملفات تعريف الارتباط -->
+    <main>
+        <div class="legal-page-container">
+            <div class="legal-header">
+                <h1 class="legal-title">سياسة ملفات تعريف الارتباط (Cookies Policy)</h1>
+                <p class="legal-subtitle">إشعار الشفافية الفنية والامتثال لمعايير الخصوصية الرقمية وجوجل: يونيو 2026</p>
+            </div>
+
+            <!-- قسم 1 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>1.</span> مقدمة عامة حول ملفات تعريف الارتباط</h2>
+                <p class="section-content">تستخدم منصة جسور الإلكترونية، التابعة لمؤسسة "بيست للتوسط في توريد العمالة"، ملفات تعريف الارتباط (Cookies) والتقنيات المشابهة لضمان عمل الموقع بأعلى كفاءة تشغيلية وتوفير تجربة تصفح مخصصة وآمنة لكافة المستخدمين. نهدف من خلال هذه السياسة إلى توضيح ماهية هذه الملفات وكيفية إدارتها بما يتطابق مع الأنظمة القانونية الحاكمة.</p>
+            </div>
+
+            <!-- قسم 2 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>2.</span> ما هي ملفات تعريف الارتباط؟</h2>
+                <p class="section-content">ملفات تعريف الارتباط هي عبارة عن ملفات نصية صغيرة الحجم يتم تخزينها على جهاز الكمبيوتر أو الهاتف الذكي الخاص بك عند زيارتك للمنصة. تساعد هذه الملفات الموقع على تذكر تفضيلاتك (مثل لغة التصفح المفضلة وحجم الخط) وتحليل حركة المرور من أجل تحسين استقرار الواجهات وسهولة الاستخدام.</p>
+            </div>
+
+            <!-- قسم 3 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>3.</span> لماذا نستخدم هذه الملفات على المنصة؟</h2>
+                <p class="section-content">نستخدم هذه التقنيات لأغراض متعددة وحيوية تشمل: تأمين جلسات التصفح ومنع الأنشطة الاحتيالية، الحفاظ على استمرارية تفضيلات المستخدم أثناء التنقل بين الصفحات، وتحليل كيفية تفاعل الزوار مع المعطيات التسويقية والخدمية لمساعدتنا في تحديث بنية العرض والطلب بما يخدم تطلعات العملاء.</p>
+            </div>
+
+            <!-- قسم 4 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>4.</span> تصنيف وأنواع ملفات الارتباط المستخدمة</h2>
+                <p class="section-content">تنقسم ملفات تعريف الارتباط التي قد يتم تفعيلها على أجهزتكم إلى عدة فئات رئيسية كما هو موضح في الجدول أدناه:</p>
+                
+                <table class="cookies-table">
+                    <thead>
+                        <tr>
+                            <th>نوع الملفات</th>
+                            <th>الغرض والوظيفة الفنية</th>
+                            <th>مدة الاحتفاظ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>الملفات الضرورية والأساسية</strong></td>
+                            <td>لا يمكن للموقع العمل بدونها، وتستخدم لتأمين التصفح والانتقال بين الصفحات بنجاح.</td>
+                            <td>تتحلل بانتهاء الجلسة</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ملفات التفضيلات والأداء</strong></td>
+                            <td>تتذكر اختياراتك مثل تفضيل اللغة (العربية/الإنجليزية) لضمان عدم إدخالها مجدداً.</td>
+                            <td>مستمرة لفترة محدودة</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ملفات التحليل والإحصاء</strong></td>
+                            <td>تساعدنا بالتعاون مع أدوات (جوجل بكسل) في فهم أعداد الزوار وكيفية تصفح الأقسام.</td>
+                            <td>دائمة تابعة للطرف الثالث</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- قسم 5 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>5.</span> أدوات التتبع والإعلانات التكيفية (الطرف الثالث)</h2>
+                <p class="section-content">قد تشتمل منصتنا على ملفات ارتباط تابعة لأطراف ثالثة موثوقة ومصرح لها مثل شبكات الإعلان والتحليل التابعة لجوجل. تُستخدم هذه الملفات لمراقبة فاعلية الحملات الإعلانية الموجهة وتخصيص تجربة الإعلانات الخارجية، بما يضمن عدم ظهور إعلانات عشوائية غير ذات صلة باهتمامات المستخدم المحددة مسبقاً.</p>
+            </div>
+
+            <!-- قسم 6 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>6.</span> كيفية التحكم في ملفات تعريف الارتباط وإلغائها</h2>
+                <p class="section-content">يمتلك المستخدم الحق الكامل في قبول أو رفض ملفات تعريف الارتباط. تتيح لك معظم متصفحات الإنترنت (مثل Google Chrome، وSafari، وFirefox) إمكانية التحكم في إعدادات ملفات الارتباط، وحظرها بالكامل، أو مسحها من سجل المتصفح في أي وقت. يرجى العلم أن حظر هذه الملفات بالكامل قد يؤدي إلى تعطيل بعض الميزات التقنية على المنصة.</p>
+            </div>
+
+            <!-- قسم 7 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>7.</span> الالتزام التنظيمي والأمان الرقمي</h2>
+                <p class="section-content">تؤكد إدارة مؤسسة "بيست لتوريد العمالة" أن ملفات الارتباط المستخدمة عبر منصة جسور لا تقرأ أي بيانات شخصية حساسة مخزنة في الأقراص الصلبة للمستخدم، ولا تسبب أي تلفيات فنية للأجهزة، ويقتصر دورها الفني تماماً على الأنماط الرقمية القياسية المتوافقة مع أمان الويب السائد.</p>
+            </div>
+
+            <!-- قسم 8 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>8.</span> التحديثات الدورية لسياسة الكوكيز</h2>
+                <p class="section-content">نحتفظ بالحق في تحديث وتعديل سياسة ملفات تعريف الارتباط هذه بشكل دوري لمواكبة أي تغييرات تطرأ على التقنيات المستخدمة أو المتطلبات القانونية والتنظيمية الصادرة عن الدوائر المختصة. يُنصح بمراجعة هذه الصفحة بانتظام لمعرفة التحديثات الجديدة والنسخ السارية مفعولها.</p>
+            </div>
+
+            <!-- قسم 9 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>9.</span> الموافقة والإقرار الإلكتروني</h2>
+                <p class="section-content">إن استمرارك في تصفح منصة جسور واستخدام خدماتها الرقمية المتنوعة يُعد إقراراً صريحاً وموافقة واعية من قبلك على سياسة ملفات تعريف الارتباط الحالية وآليات معالجتها الفنية للأغراض المشروحة في هذه الوثيقة.</p>
+            </div>
+
+            <!-- قسم 10 -->
+            <div class="legal-section-item">
+                <h2 class="section-num-title"><span>10.</span> معلومات المرجعية وقنوات التواصل</h2>
+                <p class="section-content">لأي استفسارات فنية أو تساؤلات قانونية تتعلق بكيفية استخدامنا لملفات تعريف الارتباط وأدوات التتبع الرقمي، يمكنكم التواصل المباشر مع المسؤول الفني لإدارة البيانات بمؤسسة بيست للتوسط في توريد العمالة عبر البريد الإلكتروني المعتمد: info@bestmanpower.ae أو بزيارة مقر الشركة الرسمي الكائن في: مكتب 504، الممزر، دبي، دولة الإمارات العربية المتحدة.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- الفوتر السفلي المتطابق بالكامل -->
+    <footer>
+        <div class="footer-container">
+            
+            <div class="footer-brand">منصة جسور للخدمات الإلكترونية</div>
+            <div class="footer-partnership">يتم تشغيل وإدارة طلبات التوريد والاستقدام الإقليمية بواسطة: بيست للتوسط في توريد العمالة</div>
+            
+            <div class="footer-grid">
+                <!-- العمود الأول: تفاصيل الرخصة الموحدة الرسمية -->
+                <div class="footer-col footer-links-grid">
+                    <div class="footer-info-title">البيانات القانونية والترخيص</div>
+                    <div class="info-item"><strong>الاسم التجاري:</strong> بيست للتوسط في توريد العمالة</div>
+                    <div class="info-item"><strong>الشكل القانوني:</strong> مؤسسة فردية</div>
+                    <div class="info-item"><strong>رقم الرخصة الموحدة:</strong> BD7314</div>
+                    <div class="info-item"><strong>رقم الرخصة التجاري:</strong> 854830</div>
+                    <div class="info-item"><strong>سلطة الإصدار:</strong> دائرة الاقتصاد والسياحة - دبي</div>
+                    <div class="info-item"><strong>النشاط المسجل:</strong> خدمات مكاتب التوسط في توريد العمالة (فعال)</div>
+                </div>
+
+                <!-- العمود الثاني: بيانات العنوان والتواصل -->
+                <div class="footer-col footer-links-grid">
+                    <div class="footer-info-title">بيانات العنوان والتواصل</div>
+                    <div class="info-item"><strong>العنوان الرسمي:</strong> مكتب 504 - ملك قاسم سلطان عبد الرحمن البنا - الممزر، دبي</div>
+                    <div class="info-item"><strong>صندوق بريد:</strong> 89679</div>
+                    <div class="info-item"><strong>البريد الإلكتروني المعتمد:</strong> info@bestmanpower.ae</div>
+                    <div class="info-item"><strong>منطقة تقديم الخدمة:</strong> توريد خارجي إقليمي مباشر</div>
+                </div>
+
+                <!-- العمود الثالث: روابط الأمان القانوني لجوجل المحدثة بملفات GitHub -->
+                <div class="footer-col footer-links-grid">
+                    <div class="footer-info-title">روابط الأمان والسياسات</div>
+                    <ul class="quick-links">
+                        <li><a href="privacy.html">سياسة الخصوصية والأمان</a></li>
+                        <li><a href="terms.html">الشروط والأحكام العامة</a></li>
+                        <li><a href="disclaimer.html">بيان إخلاء المسؤولية</a></li>
+                        <li><a href="cookies.html">سياسة ملفات تعريف الارتباط</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- حقوق الملكية الفكرية -->
+            <div class="copyright-bar">
+                جميع الحقوق محفوظة © 2026 لشركة بيست لتوريد العمالة ومنصة جسور التابعة لها.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
