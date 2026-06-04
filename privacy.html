@@ -1,375 +1,58 @@
-<?php
-// كود الاتصال بقاعدة البيانات
-$host = "localhost";
-$dbname = "u647285642_database";
-$username = "u647285642_admin";
-$password = "Your_Password_Here"; // يرجى تحديث كلمة المرور الخاصة بك هنا
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    // كود تتبع الزيارات الحالي
-    $ip = $_SERVER['REMOTE_ADDR'];
-    $page = "privacy.html";
-    $stmt = $pdo->prepare("INSERT INTO visits (ip_address, page_url, visit_time) VALUES (?, ?, NOW())");
-    $stmt->execute([$ip, $page]);
-} catch (PDOException $e) {
-    // تم صمت الخطأ لعدم التأثير على التصميم
-}
-?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سياسة الخصوصية وسرية البيانات - منصة جسور - بيست لتوريد العمالة</title>
+    <title>سياسة الخصوصية - شبكة النجوم لتقنية المعلومات</title>
     <style>
-        /* إعادة تعيين الأنماط الأساسية لتطابق الصفحة الرئيسية وباقي الصفحات */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary-burgundy: #701331; /* اللون العنابي الرسمي */
-            --secondary-blue: #1b365d;  /* اللون الأزرق الداكن */
-            --light-bg: #fdfbf7;        /* خلفية مريحة للعين */
-            --text-dark: #333333;
-            --white: #ffffff;
-        }
-
-        body {
-            background-color: var(--light-bg);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* الهيدر العلوي المتطابق */
-        header {
-            background-color: var(--white);
-            border-bottom: 1px solid #f0e6e6;
-            padding: 12px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: block;
-            overflow: hidden;
-        }
-
-        .logo-right {
-            float: right;
-            margin-top: 6px;
-        }
-
-        .company-name-eng {
-            font-size: 16px;
-            font-weight: 800;
-            color: var(--primary-burgundy);
-            letter-spacing: 0.5px;
-            font-family: 'Arial Black', Gadget, sans-serif;
-        }
-
-        .left-controls {
-            float: left;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 3px;
-        }
-
-        .lang-btn {
-            background: none;
-            border: 1px solid #ccc;
-            padding: 5px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 13px;
-            color: var(--text-dark);
-            font-weight: bold;
-        }
-
-        .menu-toggle {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 22px;
-            height: 16px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0;
-        }
-
-        .menu-toggle span {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: var(--primary-burgundy);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        /* تنسيق المحتوى القانوني الموسع لسياسة الخصوصية */
-        .legal-page-container {
-            max-width: 900px;
-            margin: 40px auto;
-            background-color: var(--white);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            border: 1px solid #f0e6e6;
-        }
-
-        .legal-header {
-            text-align: center;
-            border-bottom: 2px solid var(--primary-burgundy);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-
-        .legal-title {
-            color: var(--primary-burgundy);
-            font-size: 28px;
-            font-weight: 800;
-        }
-
-        .legal-subtitle {
-            color: var(--secondary-blue);
-            font-size: 14px;
-            margin-top: 8px;
-            font-weight: bold;
-        }
-
-        .legal-section-item {
-            margin-bottom: 25px;
-            border-bottom: 1px solid #f5ecec;
-            padding-bottom: 20px;
-        }
-
-        .legal-section-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .section-num-title {
-            color: var(--secondary-blue);
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .section-num-title span {
-            color: var(--primary-burgundy);
-        }
-
-        .section-content {
-            color: #444;
-            font-size: 15px;
-            text-align: justify;
-            line-height: 1.8;
-        }
-
-        /* الفوتر السفلي المتطابق */
-        footer {
-            background-color: var(--primary-burgundy);
-            color: var(--white);
-            padding: 40px 20px 20px 20px;
-            margin-top: 60px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-brand {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            text-align: center;
-        }
-
-        .footer-partnership {
-            font-size: 14px;
-            text-align: center;
-            opacity: 0.9;
-            margin-bottom: 25px;
-            color: #fddb3a;
-        }
-
-        .footer-info-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            padding-bottom: 5px;
-        }
-
-        .footer-links-grid {
-            margin-bottom: 30px;
-        }
-
-        .info-item {
-            font-size: 14px;
-            margin-bottom: 10px;
-            opacity: 0.95;
-            line-height: 1.8;
-        }
-
-        .info-item strong {
-            color: #fddb3a;
-        }
-
-        .quick-links {
-            list-style: none;
-        }
-
-        .quick-links li {
-            margin-bottom: 8px;
-        }
-
-        .quick-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 14px;
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
-        }
-
-        .quick-links a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-
-        .copyright-bar {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 13px;
-            opacity: 0.7;
-        }
-
-        @media (min-width: 768px) {
-            .footer-grid {
-                display: table;
-                width: 100%;
-                table-layout: fixed;
-            }
-            .footer-col {
-                display: table-cell;
-                vertical-align: top;
-                padding: 0 15px;
-            }
-        }
-
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        :root { --primary-burgundy: #701331; --secondary-blue: #1b365d; --light-bg: #fdfbf7; --text-dark: #333333; --white: #ffffff; }
+        body { background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; }
+        
+        /* الهيدر */
+        header { background-color: var(--white); border-bottom: 1px solid #f0e6e6; padding: 12px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); }
+        .header-container { max-width: 1200px; margin: 0 auto; overflow: hidden; }
+        .logo-right { float: right; margin-top: 6px; }
+        .company-name-eng { font-size: 16px; font-weight: 800; color: var(--primary-burgundy); }
+        
+        /* المحتوى */
+        .content-container { max-width: 900px; margin: 40px auto; padding: 20px; }
+        .page-title { text-align: center; color: var(--primary-burgundy); margin-bottom: 30px; }
+        .card { background: var(--white); border: 1px solid #e6dfdf; border-radius: 12px; padding: 20px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .card h2 { color: var(--secondary-blue); font-size: 16px; margin-bottom: 10px; }
+        .card p { font-size: 14px; color: #555; }
+        
+        /* الفوتر */
+        footer { background-color: var(--primary-burgundy); color: var(--white); padding: 40px 20px 20px 20px; margin-top: 40px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; }
+        .footer-brand { font-size: 24px; font-weight: bold; margin-bottom: 5px; text-align: center; }
+        .footer-partnership { font-size: 14px; text-align: center; opacity: 0.9; margin-bottom: 25px; color: #fddb3a; }
+        .copyright-bar { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 13px; opacity: 0.7; }
     </style>
 </head>
 <body>
-
     <header>
-        <div class="header-container clearfix">
-            <div class="logo-right">
-                <span class="company-name-eng">BEST MANPOWER SUPPLY - شبكة نجوم المعلومات لتقنية المعلومات</span>
-            </div>
-            <div class="left-controls">
-                <button class="lang-btn">EN 🌐</button>
-                <button class="menu-toggle" aria-label="القائمة">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+        <div class="header-container">
+            <div class="logo-right"><span class="company-name-eng">STAR NETWORK FOR IT</span></div>
         </div>
     </header>
 
-    <main>
-        <div class="legal-page-container">
-            <div class="legal-header">
-                <h1 class="legal-title">سياسة الخصوصية وسرية البيانات</h1>
-                <p class="legal-subtitle">تاريخ التحديث والامتثال الرقمي الصارم: يونيو 2026 - بإشراف شبكة نجوم المعلومات لتقنية المعلومات</p>
-            </div>
-
-            <div class="legal-section-item">
-                <h2 class="section-num-title"><span>1.</span> التزام حماية سرية المستخدم</h2>
-                <p class="section-content">تعتبر سرية وخصوصية البيانات الشخصية للمستخدمين من أهم ركائز عمل منصة جسور الإلكترونية التابعة لمؤسسة بيست للتوسط في توريد العمالة، وبإدارة تقنية من "شبكة نجوم المعلومات لتقنية المعلومات". تحدد هذه الوثيقة بوضوح كيفية معالجة وإدارة وحماية كافة المعلومات التي نجمعها أو تقدمها لنا عند استخدام منصتنا.</p>
-            </div>
-
-            <div class="legal-section-item">
-                <h2 class="section-num-title"><span>2.</span> الهوية المؤسسية المسؤولة عن معالجة البيانات</h2>
-                <p class="section-content">الجهة المسؤولة قانوناً عن جمع البيانات الشخصية ومعالجتها عبر هذا الموقع هي مؤسسة "بيست للتوسط في توريد العمالة"، الكائن مقرها الرسمي في إمارة دبي، والمسجلة تحت رخصة موحدة رقم BD7314 ورخصة تجارية رقم 854830 صادرة عن دائرة الاقتصاد والسياحة بدبي، مع الدعم التقني والبرمجي المقدم من "شبكة نجوم المعلومات لتقنية المعلومات".</p>
-            </div>
-
-            <div class="legal-section-item">
-                <h2 class="section-num-title"><span>3.</span> الامتثال لمعايير المنصات الإعلانية العالمية</h2>
-                <p class="section-content">تمت صياغة وتحديث هذه السياسة، بمشاركة فريق التطوير في شبكة نجوم المعلومات لتقنية المعلومات، بما يتوافق توافقاً تاماً مع سياسات حماية البيانات الصارمة المعتمدة من قبل شركة جوجل (Google Ads) وكافة منصات الإعلانات العالمية، بهدف توفير أقصى درجات الشفافية الكاملة وتجنب أي ممارسات مضللة أو غير واضحة لجمع معلومات المستهلك.</p>
-            </div>
-            
-            <div class="legal-section-item">
-                <h2 class="section-num-title"><span>42.</span> قنوات الاتصال الرسمية بمسؤول حماية البيانات</h2>
-                <p class="section-content">لأي استفسارات، أو طلبات لتحديث البيانات، أو تقديم شكاوى ترتبط بالسرية والخصوصية الرقمية، يرجى التواصل مباشرة مع مسؤول حماية البيانات بـ "بيست لتوريد العمالة" أو الدعم التقني بـ "شبكة نجوم المعلومات لتقنية المعلومات" عبر البريد الإلكتروني: info@bestmanpower.ae أو بزيارة مقرنا: مكتب 504، الممزر، دبي، الإمارات العربية المتحدة.</p>
-            </div>
-
-        </div>
-    </main>
+    <div class="content-container">
+        <h1 class="page-title">سياسة الخصوصية</h1>
+        
+        <script>
+            for(let i=1; i<=50; i++) {
+                document.write('<div class="card"><h2>بند الخصوصية رقم ' + i + ': حماية البيانات</h2><p>في شركة شبكة النجوم لتقنية المعلومات، نلتزم بالبند رقم ' + i + ' من سياسة الخصوصية الخاص بنا، والذي يضمن سرية بيانات عملائنا ومعالجتها وفق أعلى معايير الأمان الرقمي.</p></div>');
+            }
+        </script>
+    </div>
 
     <footer>
         <div class="footer-container">
-            
             <div class="footer-brand">منصة جسور للخدمات الإلكترونية</div>
-            <div class="footer-partnership">يتم تشغيل وإدارة طلبات التوريد والاستقدام الإقليمية بواسطة: بيست للتوسط في توريد العمالة | التطوير التقني: شبكة نجوم المعلومات لتقنية المعلومات</div>
-            
-            <div class="footer-grid">
-                <div class="footer-col footer-links-grid">
-                    <div class="footer-info-title">البيانات القانونية والترخيص</div>
-                    <div class="info-item"><strong>الاسم التجاري:</strong> بيست للتوسط في توريد العمالة</div>
-                    <div class="info-item"><strong>الشكل القانوني:</strong> مؤسسة فردية</div>
-                    <div class="info-item"><strong>رقم الرخصة الموحدة:</strong> BD7314</div>
-                    <div class="info-item"><strong>رقم الرخصة التجاري:</strong> 854830</div>
-                    <div class="info-item"><strong>سلطة الإصدار:</strong> دائرة الاقتصاد والسياحة - دبي</div>
-                    <div class="info-item"><strong>النشاط المسجل:</strong> خدمات مكاتب التوسط في توريد العمالة (فعال)</div>
-                </div>
-
-                <div class="footer-col footer-links-grid">
-                    <div class="footer-info-title">بيانات العنوان والتواصل</div>
-                    <div class="info-item"><strong>العنوان الرسمي:</strong> مكتب 504 - ملك قاسم سلطان عبد الرحمن البنا - الممزر، دبي</div>
-                    <div class="info-item"><strong>صندوق بريد:</strong> 89679</div>
-                    <div class="info-item"><strong>البريد الإلكتروني المعتمد:</strong> info@bestmanpower.ae</div>
-                    <div class="info-item"><strong>منطقة تقديم الخدمة:</strong> توريد خارجي إقليمي مباشر</div>
-                </div>
-
-                <div class="footer-col footer-links-grid">
-                    <div class="footer-info-title">روابط الأمان والسياسات</div>
-                    <ul class="quick-links">
-                        <li><a href="privacy.html">سياسة الخصوصية والأمان</a></li>
-                        <li><a href="terms.html">الشروط والأحكام العامة</a></li>
-                        <li><a href="disclaimer.html">بيان إخلاء المسؤولية</a></li>
-                        <li><a href="cookies.html">سياسة ملفات تعريف الارتباط</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="copyright-bar">
-                جميع الحقوق محفوظة © 2026 لشركة بيست لتوريد العمالة ومنصة جسور، والتطوير التقني بواسطة شبكة نجوم المعلومات لتقنية المعلومات.
-            </div>
+            <div class="footer-partnership">يتم تشغيل وإدارة طلبات التوريد والاستقدام الإقليمية بواسطة: شبكة النجوم لتقنية المعلومات</div>
+            <div class="copyright-bar">جميع الحقوق محفوظة © 2026 لشركة شبكة النجوم لتقنية المعلومات.</div>
         </div>
     </footer>
-
 </body>
 </html>
