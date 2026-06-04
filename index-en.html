@@ -1,462 +1,113 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شبكة النجوم لتقنية المعلومات - خدمات تقنية</title>
+    <title>Jusoor Human Solutions - Star Network For IT</title>
     <style>
-        /* إعادة تعيين الأنماط الأساسية */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary-burgundy: #701331; /* اللون العنابي الرسمي */
-            --secondary-blue: #1b365d;  /* اللون الأزرق الداكن */
-            --light-bg: #fdfbf7;        /* خلفية مريحة للعين */
-            --text-dark: #333333;
-            --white: #ffffff;
-        }
-
-        body {
-            background-color: var(--light-bg);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* الهيدر العلوي */
-        header {
-            background-color: var(--white);
-            border-bottom: 1px solid #f0e6e6;
-            padding: 12px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: block;
-            overflow: hidden;
-        }
-
-        .logo-right {
-            float: right;
-            margin-top: 6px;
-        }
-
-        .company-name-eng {
-            font-size: 16px;
-            font-weight: 800;
-            color: var(--primary-burgundy);
-            letter-spacing: 0.5px;
-            font-family: 'Arial Black', Gadget, sans-serif;
-            direction: ltr;
-        }
-
-        .left-controls {
-            float: left;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 3px;
-        }
-
-        .lang-btn {
-            background: none;
-            border: 1px solid #ccc;
-            padding: 5px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 13px;
-            color: var(--text-dark);
-            font-weight: bold;
-        }
-
-        .menu-toggle {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 22px;
-            height: 16px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0;
-        }
-
-        .menu-toggle span {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: var(--primary-burgundy);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        /* قسم الهيرو / المقدمة الرئيسية */
-        .hero-section {
-            text-align: center;
-            padding: 50px 20px 30px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-title {
-            color: var(--primary-burgundy);
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-
-        .hero-subtitle {
-            color: var(--secondary-blue);
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 25px;
-        }
-
-        .hero-description {
-            color: #555;
-            font-size: 16px;
-            max-width: 650px;
-            margin: 0 auto;
-            background-color: rgba(112, 19, 49, 0.04);
-            padding: 15px;
-            border-radius: 8px;
-            border-right: 4px solid var(--primary-burgundy);
-        }
-
-        /* قسم الخدمات والأزرار */
-        .services-section {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .services-title {
-            color: var(--secondary-blue);
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .services-subtitle {
-            color: #777;
-            font-size: 15px;
-            margin-bottom: 35px;
-        }
-
-        .service-card {
-            background-color: var(--white);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(112, 19, 49, 0.05);
-            border: 1px solid #f2eded;
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .icon-container {
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary-burgundy);
-            border-radius: 15px;
-            margin: 0 auto 15px auto;
-            display: table;
-        }
-
-        .icon-container span {
-            display: table-cell;
-            vertical-align: middle;
-            color: var(--white);
-            font-size: 26px;
-        }
-
-        .action-button {
-            display: block;
-            width: 100%;
-            background-color: var(--primary-burgundy);
-            color: var(--white);
-            text-decoration: none;
-            padding: 14px;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .action-button:hover {
-            background-color: #550e24;
-        }
-
-        /* قسم الأسئلة الشائعة */
-        .faq-section {
-            max-width: 700px;
-            margin: 50px auto 10px auto;
-            padding: 20px;
-        }
-
-        .faq-title {
-            text-align: center;
-            color: var(--secondary-blue);
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 30px;
-        }
-
-        .faq-item {
-            background-color: var(--white);
-            border: 1px solid #e6dfdf;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-        }
-
-        .faq-question {
-            padding: 18px;
-            font-weight: bold;
-            color: var(--primary-burgundy);
-            cursor: pointer;
-            background-color: #fff;
-            position: relative;
-            font-size: 16px;
-            border-bottom: 1px solid #f9f6f6;
-        }
-
-        .faq-answer {
-            padding: 18px;
-            color: #555;
-            font-size: 15px;
-            background-color: #faf8f5;
-            line-height: 1.7;
-        }
-
-        /* تنسيق روابط السياسات */
-        .legal-vertical-container {
-            max-width: 700px;
-            margin: 0 auto 40px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .legal-vertical-title {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .legal-vertical-list {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .legal-vertical-list a {
-            color: var(--primary-burgundy);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            border-bottom: 1px dashed var(--primary-burgundy);
-            padding-bottom: 2px;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
-            display: inline-block;
-        }
-
-        .legal-vertical-list a:hover {
-            color: var(--secondary-blue);
-            border-bottom-color: var(--secondary-blue);
-        }
-
-        /* الفوتر السفلي */
-        footer {
-            background-color: var(--primary-burgundy);
-            color: var(--white);
-            padding: 40px 20px 20px 20px;
-            margin-top: 40px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-brand {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            text-align: center;
-        }
-
-        .footer-partnership {
-            font-size: 14px;
-            text-align: center;
-            opacity: 0.9;
-            margin-bottom: 25px;
-            color: #fddb3a;
-        }
-
-        .footer-info-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            padding-bottom: 5px;
-        }
-
-        .footer-links-grid {
-            margin-bottom: 30px;
-        }
-
-        .info-item {
-            font-size: 14px;
-            margin-bottom: 10px;
-            opacity: 0.95;
-            line-height: 1.8;
-        }
-
-        .info-item strong {
-            color: #fddb3a;
-        }
-
-        .quick-links {
-            list-style: none;
-        }
-
-        .quick-links li {
-            margin-bottom: 8px;
-        }
-
-        .quick-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 14px;
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
-        }
-
-        .quick-links a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-
-        .copyright-bar {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 13px;
-            opacity: 0.7;
-        }
-
-        @media (min-width: 768px) {
-            .footer-grid {
-                display: table;
-                width: 100%;
-                table-layout: fixed;
-            }
-            .footer-col {
-                display: table-cell;
-                vertical-align: top;
-                padding: 0 15px;
-            }
-        }
-
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        :root { --primary-burgundy: #701331; --secondary-blue: #1b365d; --light-bg: #fdfbf7; --text-dark: #333333; --white: #ffffff; }
+        body { background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; }
+        header { background-color: var(--white); border-bottom: 1px solid #f0e6e6; padding: 12px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); }
+        .header-container { max-width: 1200px; margin: 0 auto; display: block; overflow: hidden; }
+        .logo-right { float: right; margin-top: 6px; }
+        .company-name-eng { font-size: 16px; font-weight: 800; color: var(--primary-burgundy); letter-spacing: 0.5px; font-family: 'Arial Black', Gadget, sans-serif; }
+        .left-controls { float: left; display: flex; align-items: center; gap: 15px; margin-top: 3px; }
+        .lang-btn { background: none; border: 1px solid #ccc; padding: 5px 12px; border-radius: 20px; cursor: pointer; font-size: 13px; color: var(--text-dark); font-weight: bold; text-decoration: none; }
+        .menu-toggle { display: flex; flex-direction: column; justify-content: space-between; width: 22px; height: 16px; cursor: pointer; background: none; border: none; padding: 0; }
+        .menu-toggle span { display: block; width: 100%; height: 2px; background-color: var(--primary-burgundy); border-radius: 2px; transition: all 0.3s ease; }
+        .hero-section { text-align: center; padding: 50px 20px 30px 20px; max-width: 800px; margin: 0 auto; }
+        .hero-title { color: var(--primary-burgundy); font-size: 28px; font-weight: 800; margin-bottom: 15px; }
+        .hero-subtitle { color: var(--secondary-blue); font-size: 22px; font-weight: bold; margin-bottom: 25px; }
+        .hero-description { color: #555; font-size: 16px; max-width: 650px; margin: 0 auto; background-color: rgba(112, 19, 49, 0.04); padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary-burgundy); }
+        .services-section { max-width: 600px; margin: 0 auto; padding: 20px; text-align: center; }
+        .services-title { color: var(--secondary-blue); font-size: 24px; font-weight: bold; margin-bottom: 8px; }
+        .services-subtitle { color: #777; font-size: 15px; margin-bottom: 35px; }
+        .service-card { background-color: var(--white); border-radius: 12px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(112, 19, 49, 0.05); border: 1px solid #f2eded; }
+        .icon-container { width: 60px; height: 60px; background-color: var(--primary-burgundy); border-radius: 15px; margin: 0 auto 15px auto; display: table; }
+        .icon-container span { display: table-cell; vertical-align: middle; color: var(--white); font-size: 26px; }
+        .action-button { display: block; width: 100%; background-color: var(--primary-burgundy); color: var(--white); text-decoration: none; padding: 14px; border-radius: 8px; font-size: 18px; font-weight: bold; }
+        .faq-section { max-width: 700px; margin: 50px auto 10px auto; padding: 20px; }
+        .faq-title { text-align: center; color: var(--secondary-blue); font-size: 24px; font-weight: bold; margin-bottom: 30px; }
+        .faq-item { background-color: var(--white); border: 1px solid #e6dfdf; border-radius: 8px; margin-bottom: 12px; overflow: hidden; }
+        .faq-question { padding: 18px; font-weight: bold; color: var(--primary-burgundy); cursor: pointer; border-bottom: 1px solid #f9f6f6; }
+        .faq-answer { padding: 18px; color: #555; font-size: 15px; background-color: #faf8f5; line-height: 1.7; }
+        .legal-links-section { max-width: 700px; margin: 40px auto; padding: 20px; text-align: center; }
+        .legal-links-section a { display: inline-block; margin: 10px; color: var(--primary-burgundy); font-weight: bold; text-decoration: none; font-size: 15px; border-bottom: 1px dashed var(--primary-burgundy); }
+        footer { background-color: var(--primary-burgundy); color: var(--white); padding: 40px 20px 20px 20px; margin-top: 40px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; }
+        .footer-brand { font-size: 24px; font-weight: bold; margin-bottom: 5px; text-align: center; }
+        .footer-partnership { font-size: 14px; text-align: center; opacity: 0.9; margin-bottom: 25px; color: #fddb3a; }
+        .footer-info-title { font-size: 18px; font-weight: bold; margin-bottom: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding-bottom: 5px; }
+        .info-item { font-size: 14px; margin-bottom: 10px; opacity: 0.95; line-height: 1.8; }
+        .info-item strong { color: #fddb3a; }
+        .copyright-bar { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 13px; opacity: 0.7; }
+        @media (min-width: 768px) { .footer-grid { display: table; width: 100%; table-layout: fixed; } .footer-col { display: table-cell; vertical-align: top; padding: 0 15px; } }
     </style>
 </head>
 <body>
-
     <header>
         <div class="header-container clearfix">
-            <div class="logo-right">
-                <span class="company-name-eng">AL-NOJOOM NET</span>
-            </div>
+            <div class="logo-right"><span class="company-name-eng">STAR NETWORK FOR IT</span></div>
             <div class="left-controls">
-                <a href="#" class="lang-btn" style="text-decoration: none; display: inline-block;">EN 🌐</a>
-                <button class="menu-toggle" aria-label="القائمة">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <a href="index.html" class="lang-btn">AR 🌐</a>
+                <button class="menu-toggle"><span></span><span></span><span></span></button>
             </div>
         </div>
     </header>
-
     <main>
         <section class="hero-section">
-            <h1 class="hero-title">شبكة النجوم لتقنية المعلومات</h1>
-            <h2 class="hero-subtitle">حلول تقنية متكاملة</h2>
-            <p class="hero-description">
-                بوابة التوريد التقني والخدمات الرقمية الإقليمية المعتمدة لتقديم حلول الشبكات وتصميم النظم، بالتعاون القانوني والتنفيذي الكامل مع شركة شبكة النجوم لتقنية المعلومات.
-            </p>
+            <h1 class="hero-title">Human Resources Solutions</h1>
+            <h2 class="hero-subtitle">Jusoor</h2>
+            <p class="hero-description">The authorized regional supply and recruitment portal for domestic labor services and instant human solutions, in full legal and executive cooperation with Star Network For IT.</p>
         </section>
-
         <section class="services-section">
-            <h3 class="services-title">خدماتنا</h3>
-            <p class="services-subtitle">اختر الخدمة الأنسب لاحتياجاتك للبدء الفوري</p>
-
-            <div class="service-card">
-                <div class="icon-container">
-                    <span>⏱</span>
-                </div>
-                <a href="#" class="action-button">طلب عاملة بالساعة</a>
-            </div>
-
-            <div class="service-card">
-                <div class="icon-container">
-                    <span>📅</span>
-                </div>
-                <a href="#" class="action-button">طلب عاملة باليوم</a>
-            </div>
-
-            <div class="service-card">
-                <div class="icon-container">
-                    <span>🏡</span>
-                </div>
-                <a href="#" class="action-button">طلب عاملة مقيمة</a>
-            </div>
+            <h3 class="services-title">Our Services</h3>
+            <p class="services-subtitle">Choose the service that best suits your needs</p>
+            <div class="service-card"><div class="icon-container"><span>⏱</span></div><a href="#" class="action-button">Hourly Maid Service</a></div>
+            <div class="service-card"><div class="icon-container"><span>📅</span></div><a href="#" class="action-button">Daily Maid Service</a></div>
+            <div class="service-card"><div class="icon-container"><span>🏡</span></div><a href="#" class="action-button">Live-in Maid Service</a></div>
         </section>
-
         <section class="faq-section">
-            <h3 class="faq-title">الأسئلة الشائعة</h3>
-            </section>
-
-        <footer style="background-color: #701331; color: #ffffff; padding: 40px 20px 20px 20px; margin-top: 40px;">
-            <div class="footer-container">
-                <div class="footer-brand">شبكة النجوم لتقنية المعلومات</div>
-                <div class="footer-partnership" style="color: #fddb3a;">مرخصون رسمياً لتقديم الخدمات التقنية وتصميم النظم</div>
-                
-                <div class="footer-grid">
-                    <div class="footer-col footer-links-grid">
-                        <div class="footer-info-title">البيانات القانونية والترخيص</div>
-                        <div class="info-item"><strong>الاسم التجاري:</strong> شبكة النجوم لتقنية المعلومات</div>
-                        <div class="info-item"><strong>رقم الرخصة:</strong> 586199</div>
-                        <div class="info-item"><strong>سلطة الإصدار:</strong> دائرة الاقتصاد والسياحة - دبي</div>
-                    </div>
+            <h3 class="faq-title">Frequently Asked Questions</h3>
+            <div class="faq-item"><div class="faq-question">1. What nationalities are available for domestic worker recruitment?</div><div class="faq-answer">We provide qualified and trained domestic workers from various nationalities including Philippines, Indonesia, Kenya, Ethiopia, Sri Lanka, and Bangladesh.</div></div>
+            <div class="faq-item"><div class="faq-question">2. Are the hourly and daily domestic workers trained and guaranteed?</div><div class="faq-answer">Yes, all hourly and daily workers are professionally trained to the highest standards of cleanliness and hospitality.</div></div>
+            <div class="faq-item"><div class="faq-question">3. What guarantees does the company offer to the client?</div><div class="faq-answer">We offer a comprehensive and official guarantee for live-in domestic workers in cases of refusal to work or lack of competence.</div></div>
+            <div class="faq-item"><div class="faq-question">4. How long does the recruitment process take for a live-in worker?</div><div class="faq-answer">Official procedures for external recruitment take a maximum of 15 to 30 days.</div></div>
+            <div class="faq-item"><div class="faq-question">5. Do you provide domestic workers with previous experience in the Gulf?</div><div class="faq-answer">Yes, we have a special section for workers who have extensive previous experience within the Arab Gulf countries.</div></div>
+            <div class="faq-item"><div class="faq-question">6. How are recruitment costs and fees calculated?</div><div class="faq-answer">Costs and monthly salaries vary based on the worker's nationality, service type, and professional experience.</div></div>
+            <div class="faq-item"><div class="faq-question">7. Does the company handle all legal procedures and medical tests?</div><div class="faq-answer">Certainly, our company handles all legal transactions, medical examinations, and visa processing.</div></div>
+            <div class="faq-item"><div class="faq-question">8. Can I choose and specify the worker's qualifications myself?</div><div class="faq-answer">Yes, we provide you with access to full CVs and personal profiles, and you can conduct personal interviews before contracting.</div></div>
+            <div class="faq-item"><div class="faq-question">9. What are the available payment methods to complete the contract?</div><div class="faq-answer">We provide secure and varied payment options including direct electronic payment and official bank transfers.</div></div>
+            <div class="faq-item"><div class="faq-question">10. How can I apply for domestic worker recruitment?</div><div class="faq-answer">You can easily submit a request by clicking on the service buttons on the page to chat directly with our recruitment consultants via WhatsApp.</div></div>
+        </section>
+        <section class="legal-links-section">
+            <a href="terms.html">Terms and Conditions</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
+            <a href="refund.html">Refund Policy</a>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">Jusoor Electronic Services Platform</div>
+            <div class="footer-partnership">Supply and recruitment requests are operated by: Star Network For IT</div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-info-title">Legal & Licensing Data</div>
+                    <div class="info-item"><strong>Trade Name:</strong> Star Network For IT</div>
+                    <div class="info-item"><strong>Unified License:</strong> AQ5811</div>
+                    <div class="info-item"><strong>Commercial License:</strong> 586199</div>
+                    <div class="info-item"><strong>Issuing Authority:</strong> Department of Economy and Tourism</div>
                 </div>
-                <div class="copyright-bar">
-                    جميع الحقوق محفوظة © 2026 لشركة شبكة النجوم لتقنية المعلومات.
+                <div class="footer-col">
+                    <div class="footer-info-title">Address & Contact</div>
+                    <div class="info-item"><strong>Official Address:</strong> Office 19, Sheikh Hamdan bin Rashid Al Maktoum Building, Deira, Karama, Dubai</div>
+                    <div class="info-item"><strong>P.O. Box:</strong> 99702</div>
                 </div>
             </div>
-        </footer>
-
-    </main>
+            <div class="copyright-bar">All Rights Reserved © 2026 Star Network For IT.</div>
+        </div>
+    </footer>
 </body>
 </html>
